@@ -1,103 +1,94 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
+import { FadeInSection } from './components/FadeInSection';
+import ScrollIndicator from './components/ScrollIndicator';
+import Model from './components/ThreeDScene';
+import ServicesSection from './components/ServiceSection';
+import NextJsSection from './components/NextJsSection';
+import WebdesignSection from './components/WebdesignSection';
+import CounterSection from './components/CounterSection';
+import NextJsImageSection from './components/NextJsImageSection';
+import WebdesignImageSection from './components/WebdesignImageSection';
+import CostSection from './components/CostSection';
+import SixStepsSection from './components/SixStepSection';
+import FaqSection from './components/FaqSection';
+import FooterMenu from './components/Footer';
+import TechnologiesSection from './components/TechnologieSection';
+import AboutSection from './components/AboutSection';
+import './globals.css';
+
+export default function HomePage() {
+  const { isDark } = useContext(ThemeContext);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className={`page-wrapper ${isDark ? 'dark' : 'light'}`}>
+      <section className="hero-section" id="home">
+        <FadeInSection>
+          <div className="text-center">
+            <h1 className="main-title">Baumgartner Design & Development</h1>
+            <div className='flex'>
+              <p className="subtitle">Web Design made in Switzerland</p>
+              <img
+                className='swiss'
+                src="/images/switzerland.webp"
+                alt="Next.js Entwicklung"
+                loading="lazy"
+              />
+            </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            <div className="button-group">
+              <a href="#contact" className="btn btn-primary">Kontakt</a>
+              <a href="#about-team" className="btn btn-secondary">Über das Team</a>
+            </div>
+
+            <ScrollIndicator />
+          </div>
+        </FadeInSection>
+      </section>
+
+      <section className="projects-section" id="projects">
+        <Model />
+      </section>
+
+      <ServicesSection isDark={isDark} />
+      <CounterSection isDark={isDark} />
+      <NextJsSection isDark={isDark} />
+      <NextJsImageSection isDark={isDark} />
+      <WebdesignSection isDark={isDark} />
+      <WebdesignImageSection isDark={isDark} />
+      <CostSection isDark={isDark} />
+      <SixStepsSection isDark={isDark} />
+
+      <section className="about-section" id='about-team'>
+        <FadeInSection>
+          <img
+            src="/images/team.webp"
+            alt="About Us"
+            className="about-image"
+            loading="lazy"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </FadeInSection>
+        <FadeInSection>
+          <AboutSection />
+        </FadeInSection>
+      </section>
+
+      <TechnologiesSection isDark={isDark} />
+      <FaqSection isDark={isDark} />
+
+      <section className="contact-section" id="contact">
+        <h2 className='contact'>Kontakt</h2>
+        <address>
+          <p><strong>Bruno Baumgartner</strong></p>
+          <p>Baumgarter Design & Development</p>
+          <p>E-Mail: <a href="mailto:bruno@brainbloom.ch">bruno@brainbloom.ch</a></p>
+          <p>Telefon: <a href="tel:+41782437227">+41 78 243 72 27</a></p>
+        </address>
+      </section>
+
+      <FooterMenu isDark={isDark} />
+    </main>
   );
 }

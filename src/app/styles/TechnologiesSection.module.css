@@ -1,0 +1,74 @@
+.section {
+  padding: 2rem;
+  background: var(--bg-color);
+  text-align: center;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  color: var(--text-color);
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  max-width: 300px;
+}
+
+.card:hover {
+  transform: scale(1.1) rotate(2deg);
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2.5rem;
+  color: var(--heading-color);
+  font-family: 'Orbitron', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr); /* mobile default */
+  justify-items: center;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr); /* Desktop: 5 Icons pro Reihe */
+  }
+}
+
+.icon {
+  font-size: 3rem;
+  color: var(--icon-color);
+  transition: color 0.3s ease;
+}
+
+.label {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}

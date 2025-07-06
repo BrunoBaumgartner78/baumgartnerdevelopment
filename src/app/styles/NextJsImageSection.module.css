@@ -1,0 +1,79 @@
+.nextJsSection {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.textBox {
+  flex: 1 1 500px;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.textBox h2 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.textBox p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.imageContainer {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.3s ease;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Theme Variablen – bereits global definiert in body.light / body.dark oder html.light / html.dark
+   z. B.:
+   --bg-color, --text-primary, --text-secondary, --card-shadow
+*/
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contentWrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .textBox {
+    order: 1;
+  }
+
+  .imageContainer {
+    order: 2;
+    width: 100%;
+  }
+}

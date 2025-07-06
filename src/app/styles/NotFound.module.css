@@ -1,0 +1,22 @@
+.container {
+  max-width: 800px;
+  margin: 15rem auto;
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.link {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.link:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
+}

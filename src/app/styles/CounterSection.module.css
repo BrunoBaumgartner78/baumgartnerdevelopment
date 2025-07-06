@@ -1,0 +1,146 @@
+.counterSection {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+  overflow: visible;
+  justify-content: center;
+  gap: 2rem;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Bildcontainer */
+.imageContainer {
+  position: relative;
+  flex: 0 0 420px;
+  margin-left: 30px;
+  z-index: 1;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  overflow: visible;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Counterbox über dem Bild */
+.counterWrapper {
+  position: absolute;
+  top: 120px;
+  left: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 10;
+  background-color: var(--card-bg);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  width: 250px;
+  transition: background-color 0.3s ease;
+}
+
+.counterBox {
+  color: var(--text-primary);
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.25rem;
+  user-select: none;
+}
+
+.counterNumberWrapper {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.2rem;
+}
+
+.counterNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-top: 0.3rem;
+}
+
+.percent {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-left: 0.25rem;
+}
+
+/* Textbereich */
+.textBox {
+  flex: 1 1 350px;
+  color: var(--text-secondary);
+  max-width: 400px;
+  align-self: flex-start;
+  padding-left: 2rem;
+}
+
+.textBox h2 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.textBox p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .counterSection {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .imageContainer {
+    flex: unset;
+    width: 100%;
+    max-width: 400px;
+    margin-left: 0;
+    height: 250px;
+    box-shadow: var(--card-shadow);
+  }
+
+  .imageContainer img {
+    height: 250px;
+  }
+
+  .counterWrapper {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 220px;
+    max-width: 220px;
+    margin-top: -80px;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+  }
+
+  .counterBox {
+    font-size: 1rem;
+  }
+
+  .counterNumber {
+    font-size: 1.8rem;
+  }
+
+  .textBox {
+    max-width: 100%;
+    padding-left: 0;
+    margin-top: 1rem;
+    text-align: center;
+  }
+}

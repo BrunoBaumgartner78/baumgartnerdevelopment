@@ -1,0 +1,39 @@
+.section {
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--heading-color);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--card-bg, #fff);
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow, 0 4px 10px rgba(0, 0, 0, 0.1));
+  padding: 1.5rem;
+  text-align: center;
+  cursor: default;
+  transition: box-shadow 0.3s ease;
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--accent-color, #5dd9c1);
+}
+
+.label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}

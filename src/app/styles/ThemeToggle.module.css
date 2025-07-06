@@ -1,0 +1,27 @@
+.themeToggle {
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+  color: var(--text-primary);
+  margin-right: 3rem;
+}
+
+/* Statt separate Klassen für light/dark, lieber die Variablen nutzen: */
+body.light .themeToggle {
+  color: var(--text-primary);
+}
+
+body.dark .themeToggle {
+  color: var(--text-primary); /* In Dark Mode ist text-primary ja hell, also passt */
+}
+
+/* Optional: Hover-Effekt */
+.themeToggle:hover {
+  opacity: 0.8;
+}

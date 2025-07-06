@@ -1,0 +1,66 @@
+/* Wireframes.module.css */
+
+.container {
+  max-width: 900px;
+  margin: 10rem auto;
+  padding: 0 1rem;
+  font-family: Arial, sans-serif;
+  color: var(--text-primary, #222);
+}
+
+
+.intro {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.images {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.images img {
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  height: auto;
+  flex: 1 1 300px;
+}
+
+.cta {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-primary, #222);
+}
+
+.contactButton {
+  display: inline-block;
+  background-color: var(--button-bg, #007d9c);
+  color: var(--button-text, #fff);
+  padding: 0.8rem 2rem;
+  border-radius: 9px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.contactButton:hover {
+  background-color: var(--button-hover-bg, #005f6b);
+  color: var(--button-hover-text, #fff);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+ 
+
+  .images {
+    flex-direction: column;
+  }
+}

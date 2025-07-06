@@ -1,0 +1,46 @@
+.ctaSection {
+  background: var(--footer-bg, #eef9f8);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 9px;
+}
+
+.ctaBox {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--card-bg, #fff);
+  padding: 2.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.ctaBox h2 {
+  font-size: 1.8rem;
+  color: var(--heading-color, #007d9c);
+  margin-bottom: 1.5rem;
+}
+
+.ctaBox p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary, #444);
+  margin-bottom: 1.2rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: var(--button-bg, #00bcd4);
+  color: var(--button-text, white);
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.ctaButton:hover {
+  background-color: var(--button-hover-bg, #13fbe2);
+  color: var(--button-hover-text, #000);
+}

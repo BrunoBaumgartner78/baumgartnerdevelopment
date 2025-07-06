@@ -1,0 +1,183 @@
+/* Allgemeine Einstellungen */
+.container {
+  max-width: 1200px;
+  margin: 5rem auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+/* Services Grid */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 6rem;
+  padding: 0 1rem;
+}
+
+/* Kartenbox */
+.serviceBox {
+  background-color: var(--card-bg, #fff);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.serviceBox:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.serviceBox h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.serviceBox p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-secondary, #555);
+}
+
+/* Bilder in Karten */
+.serviceBox .image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Icon-Stil */
+.icon {
+  margin-bottom: 1rem;
+  color: var(--icon-color);
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Images */
+.image {
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+}
+
+/* Benefits Section */
+/* Benefits Section */
+.benefits {
+  margin: 5rem auto;
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  background-color: var(--benefit-bg, var(--card-bg));
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.benefits h2 {
+  font-size: 2.25rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--heading-color);
+}
+
+.benefits ul {
+  list-style: disc inside;
+  padding-left: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.benefits li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+
+/* Builder Problems Section (als Box gestaltet) */
+.builderProblems {
+  max-width: 1000px;
+  margin: 6rem auto;
+  padding: 3rem 2rem;
+  background-color: var(--benefit-bg, var(--card-bg));
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.builderProblems h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--heading-color);
+}
+
+.builderProblems p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--text-secondary, #555);
+}
+
+.builderProblems ul {
+  list-style: disc inside;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: 1rem;
+}
+
+.builderProblems li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+
+/* CTA Section */
+.cta {
+  max-width: 900px;
+  margin: 6rem auto 8rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-secondary, #444);
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits,
+  .builderProblems,
+  .cta {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    max-width: unset;
+    padding: 2rem 1rem;
+  }
+}

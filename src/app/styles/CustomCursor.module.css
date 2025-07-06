@@ -1,0 +1,20 @@
+.cursor {
+  position: fixed;
+  width: 32px; /* Größe des Cursor-Bildes */
+  height: 32px;
+  pointer-events: none; /* Damit der Cursor nicht Klicks blockiert */
+  background-image: url('/cursor.webp'); /* Pfad zu deinem Cursorbild */
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translate(-50%, -50%); /* Cursor zentrieren */
+  z-index: 9999;
+  border-radius: 50%;
+  box-shadow: -4px 2px 6px  var(--accent-color);
+
+}
+
+@media screen and (max-width: 768px) {
+  .cursor{
+    display: none;
+  }
+}

@@ -1,0 +1,46 @@
+.about-text {
+  max-width: 500px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.about-text .btn {
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Optional: Light/Dark Mode Button Farben */
+.light .btn-primary {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+.light .btn-primary:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
+}
+
+.dark .btn-primary {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+.dark .btn-primary:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
+}

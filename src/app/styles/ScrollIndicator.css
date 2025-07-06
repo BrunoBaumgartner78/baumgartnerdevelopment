@@ -1,0 +1,50 @@
+.scroll-indicator-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem; /* entspricht mt-12 */
+}
+
+.scroll-indicator-track {
+  position: relative;
+  width: 0.5rem; /* 2 Tailwind-Einheiten */
+  height: 3.75rem; /* 15 Tailwind-Einheiten (15 * 0.25rem = 3.75rem) */
+  background-color: #9ca3af; /* gray-400 */
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.dark .scroll-indicator-track {
+  background-color: #4b5563; /* gray-600 */
+}
+
+.scroll-indicator-thumb {
+  position: absolute;
+  width: 8px;
+  height: 36px;
+  background-color: black;
+  border-radius: 9999px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollup 2.5s ease-in-out infinite;
+}
+
+.dark .scroll-indicator-thumb {
+  background-color: white;
+}
+
+@keyframes scrollup {
+  0% {
+    transform: translateX(-50%) translateY(100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+}

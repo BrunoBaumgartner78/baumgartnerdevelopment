@@ -1,0 +1,27 @@
+.container {
+  max-width: 1100px;
+  margin: 10rem auto;
+  padding: 2rem 1.5rem;
+
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px; 
+  margin: 0 auto; 
+}
+.imageWrapper {
+  margin: 0; /* oben/unten Abstand, aber kein seitlicher */
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%; 
+            /* volle Breite */
+}
+
+
+.why, .services, .commitment {
+  margin-bottom: 3rem;
+}

@@ -1,0 +1,9 @@
+.container {
+  max-width: 900px;
+  margin: 10rem auto;
+  padding: 2rem 1.5rem;
+  color: var(--text-primary);
+}
+.section {
+  margin-bottom: 3rem;
+}

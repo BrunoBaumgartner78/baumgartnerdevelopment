@@ -1,0 +1,113 @@
+/* Section Styles */
+.section {
+  padding: 4rem 2rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Wrapper für flexibles Layout */
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Steps Bereich */
+.steps {
+  flex: 1 1 300px;
+}
+
+.steps h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.steps ol {
+  list-style: none;
+  padding-left: 0;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  counter-reset: list-counter;
+}
+
+.steps li {
+  counter-increment: list-counter;
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+.steps li::before {
+  content: counter(list-counter);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cards Bereich */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1 1 250px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  color: var(--text-primary);
+  transition: transform 0.3s ease;
+}
+
+.card p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.card strong {
+  font-size: 1.2rem;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .cards {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card {
+    flex: 1;
+  }
+}

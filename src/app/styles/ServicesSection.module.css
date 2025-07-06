@@ -1,0 +1,157 @@
+.servicesSection {
+  padding: 3rem 1.5rem;
+  max-width: 1200px;
+  margin: 10px auto;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sectionTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--heading-color);
+  transition: color 0.3s ease;
+}
+
+.sectionIntro {
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+/* Kartencontainer */
+.cards {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Einzelne Karte */
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem 1.5rem 2rem 1.5rem;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: visible;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: default;
+}
+
+.card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Wrapper mit halbfarbigem Hintergrund */
+.iconWrapper {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+  z-index: 1;
+}
+
+/* Halbfarbiger Hintergrund: links/türkis (light) oder braun (dark) halbkreis */
+.iconBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  z-index: -1;
+  background-color: var(--icon-bg);
+  transition: background-color 0.3s ease;
+}
+
+/* Icon selbst */
+.icon {
+  width: 100%;
+  height: 100%;
+  color: var(--icon-color);
+  transition: color 0.3s ease;
+}
+
+/* Text in Karte */
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+.benefits {
+  margin: 5rem auto;
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  background-color: var(--benefit-bg, var(--card-bg));
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.benefits h2 {
+  font-size: 2.25rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--heading-color);
+}
+
+.benefits ul {
+  list-style: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+
+.benefits li::before {
+  content: '✔';
+  font-size: 1.3rem;
+  color: var(--icon-color);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contactButton {
+  display: inline-block;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 0.6rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contactButton:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
+}
