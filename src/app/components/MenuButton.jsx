@@ -10,6 +10,7 @@ export default function MenuButton({ onClick }) {
 
   const logoSrc = isDark ? '/images/logo1.webp' : '/images/logo.webp';
 
+
   return (
     <button
       onClick={onClick}  // <-- Wichtig, dass onClick richtig benutzt wird
