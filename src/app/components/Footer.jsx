@@ -44,8 +44,8 @@ export default function FooterMenu() {
           <div>
             <h4>Webdesign</h4>
             <ul>
-              <li><a href="/responsive">Responsive Design</a></li>
-              <li><a href="/interaction">Interaction Design</a></li>
+              <li><a href="/responsive-design">Responsive Design</a></li>
+              <li><a href="/interaction-design">Interaction Design</a></li>
               <li><a href="/accessibility">Barrierefreiheit</a></li>
               <li><a href="/design-systems">Design Systeme</a></li>
             </ul>

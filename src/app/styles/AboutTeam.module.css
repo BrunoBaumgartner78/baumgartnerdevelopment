@@ -5,7 +5,7 @@
   background: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.4s ease, color 0.4s ease;
-  width: 95%;
+
 }
 
 .title {
@@ -36,7 +36,7 @@
   border-radius: 12px;
   box-shadow: var(--card-shadow);
   transition: transform 0.3s ease;
-  height: 150px;
+
 }
 
 .card:hover {
