@@ -1,12 +1,9 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizeCss: true,
+    optimizeCss: true, // falls du das willst
   },
-  modularizeImports: {
-    lodash: {
-      transform: 'lodash/{{member}}',
-    },
-  },
-};
+}
 
 export default nextConfig;
+

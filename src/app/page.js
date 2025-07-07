@@ -17,6 +17,7 @@ import FaqSection from './components/FaqSection';
 import FooterMenu from './components/Footer';
 import TechnologiesSection from './components/TechnologieSection';
 import AboutSection from './components/AboutSection';
+import Image from 'next/image';
 import './globals.css';
 
 export default function HomePage() {
