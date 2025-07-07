@@ -1,7 +1,15 @@
-// app/layout.jsx
-import './globals.css';
-import ThemeProvider from '../context/ThemeContext';
-import InnerApp from './components/InnerApp';
+import { Orbitron } from 'next/font/google';
+import ThemeProvider from '../context/ThemeContext';  // Import anpassen falls dein Pfad anders ist
+import InnerApp from './components/InnerApp';         // Import anpassen falls dein Pfad anders ist
+import '../app/globals.css';
+
+
+
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  weight: ['400', '600', '800'],
+  display: 'swap',
+});
 
 export const viewport = {
   width: 'device-width',
@@ -42,16 +50,32 @@ export const metadata = {
   },
 };
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="de">
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet" />
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="canonical" href="https://baumgartner-development.ch" />
+        <meta name="robots" content="index,follow" />
 
-      <body>
-       
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Baumgartner Development",
+              url: "https://baumgartner-development.ch",
+            }),
+          }}
+        />
+      </head>
+      <body className={orbitron.className}>
         <ThemeProvider>
           <InnerApp>{children}</InnerApp>
         </ThemeProvider>

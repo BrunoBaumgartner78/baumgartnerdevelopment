@@ -1,7 +1,13 @@
-// next.config.js
-module.exports = {
+const nextConfig = {
   experimental: {
     legacyBrowsers: false,
+    optimizeCss: true,
   },
-  transpilePackages: [],
+  modularizeImports: {
+    lodash: {
+      transform: 'lodash/{{member}}',
+    },
+  },
 };
+
+export default nextConfig;
