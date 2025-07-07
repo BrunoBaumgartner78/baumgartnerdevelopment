@@ -8,7 +8,7 @@ import '../styles/MenuButton.css';
 export default function MenuButton({ onClick }) {
   const { isDark } = useContext(ThemeContext);
 
-  const logoSrc = isDark ? '/images/logo1.webp' : '/images/logo.webp';
+  const logoSrc = isDark ? '/images/baumgartnerLogo.webp' : '/images/baumgartnerLogoWeiss.webP';
 
 
   return (
