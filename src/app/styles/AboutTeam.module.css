@@ -5,6 +5,7 @@
   background: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.4s ease, color 0.4s ease;
+  width: 95%;
 }
 
 .title {
