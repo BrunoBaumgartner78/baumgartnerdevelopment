@@ -3,7 +3,7 @@ import Image from 'next/image';
 import FooterMenu from '../components/Footer';
 import CostSection from '../components/CostSection';
 import SixStepsSection from '../components/SixStepSection';
-import CallToAction from '../components/CallToAction';
+
 
 export default function NextServerPage() {
   return (
@@ -91,7 +91,6 @@ export default function NextServerPage() {
         </section>
         <CostSection />
         <SixStepsSection />
-        <CallToAction />
       </main>
       <FooterMenu />
     </>

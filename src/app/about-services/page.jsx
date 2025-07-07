@@ -117,9 +117,9 @@ export default function ServicesPage() {
         </section>
         <CostSection />
       <SixStepsSection/>
-      <CallToAction />
+   
       </div>
-
+   <CallToAction />
       <FooterMenu />
     </>
   );

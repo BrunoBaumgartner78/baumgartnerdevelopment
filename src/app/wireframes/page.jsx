@@ -49,7 +49,7 @@ export default function Wireframes() {
         <a href="/contact" className={styles.contactButton}>Kontakt aufnehmen</a>
         <WireframesTechnologiesSection />
         <CostSection />
-                    <SixStepsSection />
+        <SixStepsSection />
              
       </section>
     </main>

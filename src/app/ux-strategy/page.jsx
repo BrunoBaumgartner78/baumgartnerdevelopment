@@ -5,12 +5,13 @@ import CostSection from '../components/CostSection';
 import SixStepsSection from '../components/SixStepSection';
 import styles from '../styles/UXStrategy.module.css';
 import FooterMenu from '../components/Footer';
+import CallToAction from '../components/CallToAction';
 
 export default function UXStrategy() {
   return (
     <>
     <main className={styles.container}>
-      <h1>UX-Strategie – Benutzerzentrierte Ansätze für nachhaltigen Erfolg</h1>
+      <h1>UX-Strategie – Benutzer- zentrierte Ansätze für nachhaltigen Erfolg</h1>
 
       <p className={styles.intro}>
         Willkommen bei Baumgartner Development – Ihrem Experten für durchdachte UX-Strategien. 
@@ -85,6 +86,7 @@ export default function UXStrategy() {
             <SixStepsSection />
      
     </main>
+    <CallToAction />
      <FooterMenu />
     </>
   );

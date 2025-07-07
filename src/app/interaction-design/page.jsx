@@ -5,7 +5,7 @@ import styles from '../styles/InteractionDesign.module.css';
 import FooterMenu from '../components/Footer';
 import { SiX } from 'react-icons/si';
 import SixStepsSection from '../components/SixStepSection';
-import CallToAction from '../components/CallToAction';
+import CostSection from '../components/CostSection';
 
 export default function InteractionDesignPage() {
   return (
@@ -58,8 +58,9 @@ export default function InteractionDesignPage() {
           Lassen Sie uns gemeinsam digitale Erlebnisse schaffen, die in Erinnerung bleiben.
         </p>
       </section>
+      <CostSection/>
       <SixStepsSection />
-      <CallToAction />
+     
     </main>
     <FooterMenu />
     </>

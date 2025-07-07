@@ -5,7 +5,6 @@ import CostSection from '../components/CostSection';
 import SixStepsSection from '../components/SixStepSection';
 import styles from '../styles/Seo.module.css';
 import Image from 'next/image';
-import CallToAction from '../components/CallToAction';
 
 export default function SeoPage() {
   return (
@@ -66,7 +65,6 @@ export default function SeoPage() {
 
         <CostSection />
         <SixStepsSection />
-        <CallToAction />
       </main>
       <FooterMenu />
     </>

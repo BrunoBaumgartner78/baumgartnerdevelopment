@@ -3,7 +3,6 @@
 import styles from '../styles/WooCommerce.module.css';
 import Image from 'next/image';
 import FooterMenu from '../components/Footer';
-import CallToAction from '../components/CallToAction';
 import CostSection from '../components/CostSection';
 
 export default function WooCommercePage() {
@@ -68,7 +67,8 @@ export default function WooCommercePage() {
         </section>
 
         <CostSection />
-        <CallToAction />
+        <SixStepSection />
+       
       </main>
       <FooterMenu />
     </>

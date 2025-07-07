@@ -5,7 +5,6 @@ import CostSection from '../components/CostSection';
 import SixStepsSection from '../components/SixStepSection';
 import styles from '../styles/UserResearch.module.css';
 import Image from 'next/image';
-import CallToAction from '../components/CallToAction';
 
 export default function UserResearchPage() {
   return (
@@ -67,7 +66,7 @@ export default function UserResearchPage() {
       
        <CostSection />
     <SixStepsSection />
-               <CallToAction />    
+                
     </main>
     <FooterMenu />
      </>

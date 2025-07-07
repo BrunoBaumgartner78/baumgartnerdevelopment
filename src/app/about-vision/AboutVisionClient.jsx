@@ -1,6 +1,5 @@
 'use client';
 
-import CallToAction from '../components/CallToAction';
 import CostSection from '../components/CostSection';
 import FooterMenu from '../components/Footer';
 import SixStepsSection from '../components/SixStepSection';
@@ -99,7 +98,7 @@ export default function AboutVisionClient() {
       </section>
     <CostSection />
     <SixStepsSection />
-    <CallToAction />
+ 
     </div>
   <FooterMenu />
     </>

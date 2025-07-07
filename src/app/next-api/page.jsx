@@ -4,7 +4,6 @@ import Image from 'next/image';
 import FooterMenu from '../components/Footer';
 import CostSection from '../components/CostSection';
 import SixStepsSection from '../components/SixStepSection';
-import CallToAction from '../components/CallToAction';
 
 export default function ApiRoutesPage() {
   return (
@@ -98,7 +97,7 @@ export async function GET(request) {
         </section>
         <CostSection />
         <SixStepsSection />
-        <CallToAction />
+       
       </main>
 
       <FooterMenu />

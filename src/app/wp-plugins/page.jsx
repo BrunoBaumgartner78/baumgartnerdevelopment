@@ -3,8 +3,9 @@
 import Image from 'next/image';
 import styles from '../styles/WPPlugins.module.css';
 import FooterMenu from '../components/Footer';
-import CallToAction from '../components/CallToAction';
 import TechnologiesSection from '../components/TechnologieSection';
+import CostSection from '../components/CostSection';
+import SixStepsSection from '../components/SixStepSection';
 
 export default function WordPressPluginsPage() {
   return (
@@ -71,7 +72,8 @@ export default function WordPressPluginsPage() {
         </section>
 
         <TechnologiesSection />
-        <CallToAction />
+        <CostSection />
+        <SixStepsSection />
       </main>
       <FooterMenu />
     </>

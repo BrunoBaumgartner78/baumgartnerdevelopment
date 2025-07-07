@@ -3,8 +3,9 @@
 import styles from '../styles/WpHeadless.module.css';
 import Image from 'next/image';
 import FooterMenu from '../components/Footer';
-import CallToAction from '../components/CallToAction';
 import TechnologiesSection from '../components/TechnologieSection';
+import CostSection from '../components/CostSection';
+import SixStepsSection from '../components/SixStepSection';
 
 export default function WordPressHeadlessPage() {
   return (
@@ -67,7 +68,8 @@ export default function WordPressHeadlessPage() {
         </section>
 
         <TechnologiesSection />
-        <CallToAction />
+        <CostSection />
+        <SixStepsSection />
       </main>
       <FooterMenu />
     </>
