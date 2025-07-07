@@ -16,7 +16,7 @@ export default function FooterMenu() {
           <div>
             <h4>Home</h4>
             <ul>
-              <li><a href="/home">Startseite</a></li>
+              <li><a href="/">Startseite</a></li>
               <li><a href="/contact">Kontakt</a></li>
             </ul>
           </div>
