@@ -1,9 +1,9 @@
 .container {
-  padding: 2rem 1rem;
+  padding: 2rem 0rem;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 10rem auto;
   transition: background-color 0.3s ease, color 0.3s ease;
-  margin-top: 10rem;
+ 
 }
 
 .light {
@@ -95,7 +95,7 @@
 
 @media (max-width: 480px) {
   .container {
-    padding: 1rem 0.75rem;
+    padding: 1rem 0;
   }
 
   .title {

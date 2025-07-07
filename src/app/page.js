@@ -71,7 +71,7 @@ export default function HomePage() {
   src="/images/team.webp"
   alt="About Us"
   width={800}
-  height={600}
+  height={400}
   className="about-image"
 />
 

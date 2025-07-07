@@ -18,6 +18,7 @@
   align-items: center;
   width: 80px;
   max-width: 300px;
+  height: 8rem;
 }
 
 .card:hover {

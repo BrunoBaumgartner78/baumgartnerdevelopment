@@ -26,7 +26,7 @@ export default function FooterMenu() {
             <ul>
               <li><a href="/about-team">Unser Team</a></li>
               <li><a href="/about-vision">Unsere Vision</a></li>
-              <li><a href="/about-career">Karriere</a></li>
+              <li><a href="/about-services">Unsere Leistungen</a></li>
               <li><a href="/about-locations">Standorte</a></li>
             </ul>
           </div>

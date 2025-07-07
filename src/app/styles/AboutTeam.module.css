@@ -35,6 +35,7 @@
   border-radius: 12px;
   box-shadow: var(--card-shadow);
   transition: transform 0.3s ease;
+  height: 150px;
 }
 
 .card:hover {
