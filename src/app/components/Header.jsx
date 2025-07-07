@@ -59,7 +59,7 @@ export default function Header({ isDark, onMenuToggle, toggleTheme }) {
   return (
     <header className={styles.header}>
       <h2 className={styles.header_title}>
-        <Link href="/">Baumgartner D&amp;D</Link>
+        <Link href="/">Baumgartner</Link>
       </h2>
 <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
       {/* Großes Menü (Desktop) */}
