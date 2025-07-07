@@ -1,6 +1,5 @@
 const nextConfig = {
   experimental: {
-    legacyBrowsers: false,
     optimizeCss: true,
   },
   modularizeImports: {

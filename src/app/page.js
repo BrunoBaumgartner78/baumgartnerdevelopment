@@ -30,14 +30,15 @@ export default function HomePage() {
             <h1 className="main-title">Baumgartner Design & Development</h1>
             <div className='flex'>
               <p className="subtitle">Web Design made in Switzerland</p>
-              <img
-                className='swiss'
-                src="/images/switzerland.webp"
-                alt="Next.js Entwicklung"
-               fetchPriority="high"
-              decoding="async"
-              loading="eager"
-              />
+<Image
+  className='swiss'
+  src="/images/switzerland.webp"
+  alt="Next.js Entwicklung"
+  width={40} // oder was passend ist
+  height={40}
+  priority // ersetzt fetchPriority="high"
+/>
+              
             </div>
 
             <div className="button-group">
@@ -65,12 +66,14 @@ export default function HomePage() {
 
       <section className="about-section" id='about-team'>
         <FadeInSection>
-          <img
-            src="/images/team.webp"
-            alt="About Us"
-            className="about-image"
-            loading="lazy"
-          />
+         <Image
+  src="/images/team.webp"
+  alt="About Us"
+  width={800}
+  height={600}
+  className="about-image"
+/>
+
         </FadeInSection>
         <FadeInSection>
           <AboutSection />
