@@ -22,7 +22,7 @@ export const metadata = {
     siteName: 'Baumgartner Development',
     images: [
       {
-        url: '/baumgartner-development.jpg', // <- sicherstellen, dass dieses Bild im public/ Ordner ist
+        url: '/baumgartner development.jpg', // <- sicherstellen, dass dieses Bild im public/ Ordner ist
         width: 1200,
         height: 630,
         alt: 'Webdesign Schweiz – Baumgartner Development',
