@@ -1,8 +1,9 @@
 .container {
   max-width: 1100px;
   margin: 10rem auto;
-  padding: 3rem 1.5rem;
+  padding: 3rem 0;
   color: var(--text-primary, #222);
+  width: 100%;
 }
 
 .heroContent {
