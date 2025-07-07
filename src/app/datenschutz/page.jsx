@@ -7,7 +7,7 @@ export default function DatenschutzPage() {
   return (
     <>
       <main className={styles.container}>
-        <h1>Datenschutzerklärung</h1>
+        <h1>Datenschutz- Erklärung</h1>
 
         <section className={styles.section}>
           <h2>1. Allgemeine Hinweise</h2>

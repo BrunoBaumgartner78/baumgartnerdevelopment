@@ -7,7 +7,7 @@ export default function AGBPage() {
   return (
     <>
       <main className={styles.container}>
-        <h1>Allgemeine Geschäftsbedingungen (AGB)</h1>
+        <h1>Allgemeine Geschäfts- Bedingungen (AGB)</h1>
 
         <section className={styles.section}>
           <h2>1. Geltungsbereich</h2>
