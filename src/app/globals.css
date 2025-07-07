@@ -51,10 +51,15 @@ a {
 /* ===== Headings & Typography ===== */
 h1, h2, h3, h4, a {
   font-family: 'Orbitron', sans-serif;
+  margin: 5px;
 }
 h2, h3, h4, h5, h6 {
   color: var(--heading-color);
   font-weight: 600;
+}
+
+p{
+  margin: 5px;
 }
 
 li{

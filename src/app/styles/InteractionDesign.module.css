@@ -3,6 +3,7 @@
   margin: 10rem auto;
   padding: 3rem 0;
   color: var(--text-primary, #222);
+  width: 100%;
 }
 
 .hero {
