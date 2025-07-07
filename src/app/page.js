@@ -34,7 +34,9 @@ export default function HomePage() {
                 className='swiss'
                 src="/images/switzerland.webp"
                 alt="Next.js Entwicklung"
-                loading="priority"
+               fetchPriority="high"
+              decoding="async"
+              loading="eager"
               />
             </div>
 

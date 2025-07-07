@@ -22,7 +22,7 @@ export const metadata = {
     siteName: 'Baumgartner Development',
     images: [
       {
-        url: '/baumgartner development.jpg', // <- sicherstellen, dass dieses Bild im public/ Ordner ist
+        url: 'https://baumgartner-development.ch/baumgartner-development.jpg',
         width: 1200,
         height: 630,
         alt: 'Webdesign Schweiz – Baumgartner Development',
@@ -35,19 +35,20 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Baumgartner Development – Webdesign Schweiz',
     description: 'Modernes, responsives Webdesign und SEO aus der Schweiz.',
-    creator: '@baumgartnerdevelopment',
-    images: ['/baumgartner-development.jpg'],
+    images: ['https://baumgartner-development.ch/baumgartner-development.jpg'],
   },
   icons: {
     icon: '/favicon.ico',
   },
 };
 
+
 export default function RootLayout({ children }) {
   return (
     <html lang="de">
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet" />
 
       <body>
        
