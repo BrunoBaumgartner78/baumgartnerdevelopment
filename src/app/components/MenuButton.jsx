@@ -1,4 +1,3 @@
-// MenuButton.jsx
 'use client';
 
 import { useContext } from 'react';
@@ -8,17 +7,30 @@ import '../styles/MenuButton.css';
 export default function MenuButton({ onClick }) {
   const { isDark } = useContext(ThemeContext);
 
-  const logoSrc = isDark ? '/baumgartnerLogo.webp' : '/baumgartnerLogoWeiss.webP';
-
-
   return (
     <button
-      onClick={onClick}  // <-- Wichtig, dass onClick richtig benutzt wird
+      onClick={onClick}
       aria-label="Toggle menu"
-      className={isDark ? 'menu-button dark' : 'menu-button light'}
+      className={`menu-button ${isDark ? 'dark' : 'light'}`}
       type="button"
+      style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}
     >
-      <img src={logoSrc} alt="Menu" className="menu-button-image" />
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        stroke={isDark ? '#ffffff' : '#000000'}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="menu-button-icon"
+      >
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
     </button>
   );
 }

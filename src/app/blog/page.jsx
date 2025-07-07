@@ -1,5 +1,6 @@
-'use client'; // GANZ OBEN!
+'use client';
 
+import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 import { sanityClient, urlFor } from '../../lib/sanity';
@@ -31,14 +32,16 @@ export default function BlogPage() {
       <ul className={styles.postList}>
         {posts.map((post) => (
           <li key={post._id} className={styles.postItem}>
-            {post.mainImage && (
-              <img
-                src={urlFor(post.mainImage).width(800).url()}
-                alt={post.title}
-                className={styles.blogImage}
-              />
-            )}
-            <h2>{post.title}</h2>
+            <Link href={`/blog/${post.slug.current}`}>
+              {post.mainImage && (
+                <img
+                  src={urlFor(post.mainImage).width(800).url()}
+                  alt={post.title}
+                  className={styles.blogImage}
+                />
+              )}
+              <h2>{post.title}</h2>
+            </Link>
           </li>
         ))}
       </ul>
