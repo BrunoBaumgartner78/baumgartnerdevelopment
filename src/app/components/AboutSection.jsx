@@ -1,5 +1,6 @@
 import React from "react";
-import "../styles/AboutSection.module.css";
+import styles from '../styles/AboutSection.module.css'; // richtig, exakt wie Datei benannt
+
 
 export default function AboutSection() {
   const scrollToTeam = () => {
