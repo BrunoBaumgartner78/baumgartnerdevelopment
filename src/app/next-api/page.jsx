@@ -13,7 +13,7 @@ export default function ApiRoutesPage() {
 
         <section className={styles.section}>
           <div className={styles.text}>
-            <h2 className={styles.title}>Was sind API-Routen?</h2>
+            <h2>Was sind API-Routen?</h2>
             <p>
               In Next.js kannst du eigene <strong>API-Endpunkte</strong> erstellen – direkt im Projekt,
               ohne separates Backend. Diese laufen als serverless Funktionen und verhalten sich wie ein Mini-Backend.

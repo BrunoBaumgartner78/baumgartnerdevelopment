@@ -13,7 +13,7 @@ export default function ResponsiveDesignPage() {
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <div className={styles.text}>
-            <h1 className={styles.title}>Responsive Design – Für alle Geräte optimiert</h1>
+            <h1>Responsive Design – Für alle Geräte optimiert</h1>
             <p>
               Ihre Website muss auf jedem Gerät funktionieren – ob Smartphone, Tablet oder Desktop. 
               Wir entwickeln digitale Erlebnisse, die sich flexibel an jedes Endgerät anpassen.

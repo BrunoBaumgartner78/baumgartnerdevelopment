@@ -10,7 +10,7 @@ export default function AboutLocation() {
     <>
       <div className={styles.container}>
        <section className={styles.about}>
-  <h1 className={styles.title}>Über Unseren Standort</h1>
+  <h1>Über Unseren Standort</h1>
   <p>
     Wir sind ein kreatives Digitalstudio mit Fokus auf modernes Webdesign, SEO-Performance
     und technische Exzellenz. Unser Ziel ist es, für unsere Kund:innen nachhaltige und

@@ -25,7 +25,7 @@ export default function AboutVisionClient() {
     <>
     <div className={styles.container}>
       <section className={styles.visionSection}>
-        <h1 className='visionTitle'>Unsere Vision</h1>
+        <h1>Unsere Vision</h1>
         <p>
           Wir glauben an eine inklusive, performante und menschlich gedachte Zukunft des Webs.
           Unsere Vision ist eine digitale Welt, in der Technologie nicht nur funktioniert – sondern inspiriert.

@@ -36,7 +36,7 @@ export default function AboutTeam() {
     <main className={isDark ? 'dark' : 'light'}>
       <section className={`${styles.teamSection} section`} id="about-team">
         <FadeInSection>
-          <h2 className={styles.title}>Unser Team</h2>
+          <h2>Unser Team</h2>
           <p className={styles.subtitle}>
             Kreativ, erfahren und voller Leidenschaft – wir bringen Ihre Vision zum Leben.
           </p>

@@ -10,7 +10,7 @@ export default function SeoPage() {
   return (
     <>
       <main className={styles.container}>
-        <h1 className={styles.title}>SEO in Next.js – Sichtbarkeit, die wirkt</h1>
+        <h1>SEO in Next.js – Sichtbarkeit, die wirkt</h1>
 
         <section className={styles.section}>
           <div className={styles.text}>

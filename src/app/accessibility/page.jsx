@@ -11,7 +11,7 @@ export default function BarrierefreiheitPage() {
     <>
     <main className={styles.container}>
       <section className={styles.hero}>
-        <h1 className={styles.title}>Barrierefreiheit – Digitale Teilhabe für alle</h1>
+        <h1>Barriere- Freiheit – Digitale Teilhabe für alle</h1>
         <p>
           Digitale Inklusion beginnt mit Barrierefreiheit. Bei Baumgartner Development setzen wir uns dafür ein, dass Ihre Website für alle Menschen zugänglich ist – unabhängig von körperlichen oder kognitiven Einschränkungen.
         </p>
