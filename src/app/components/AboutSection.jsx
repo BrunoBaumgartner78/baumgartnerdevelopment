@@ -8,7 +8,7 @@ export default function AboutSection() {
 
   return (
     <div className="about-text">
-      <h2>Über uns</h2>
+      <h2 className={styles.title}>Über uns</h2>
       <p>
         Wir sind ein innovatives Webdesign-Studio aus der Schweiz,
         spezialisiert auf futuristische Interfaces, 3D-Webtechnologien und

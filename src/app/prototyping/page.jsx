@@ -11,7 +11,7 @@ export default function Prototyping() {
   return (
     <>
     <main className={styles.container}>
-      <h1>Prototyping – Ideen sichtbar machen</h1>
+      <h1 className={styles.title}>Prototyping – Ideen sichtbar machen</h1>
 
       <section className={styles.section}>
         <div className={styles.text}>

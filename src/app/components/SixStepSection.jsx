@@ -25,15 +25,15 @@ export default function SixStepsSection() {
         </div>
 
         {/* Rechte Seite: Kontaktkarten */}
-        <div className={styles.cards}>
-          <div className={styles.card}>
+        <div className={styles.sixcards}>
+          <div className={styles.sixcard}>
             <Phone size={28} />
             <div>
               <p>Telefon</p>
               <strong>+41 78 241 72 27</strong>
             </div>
           </div>
-          <div className={styles.card}>
+          <div className={styles.sixcard}>
             <Mail size={28} />
             <div>
               <p>E-Mail</p>

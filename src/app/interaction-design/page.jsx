@@ -13,7 +13,7 @@ export default function InteractionDesignPage() {
     <main className={styles.container}>
       <section className={styles.hero}>
         <div className={styles.content}>
-          <h1>Interaction Design – Nutzerinteraktion im Fokus</h1>
+          <h1 className={styles.title}>Interaction Design – Nutzerinteraktion im Fokus</h1>
           <p>
             Interaktionsdesign stellt sicher, dass Ihre Nutzer:innen intuitiv, effektiv und mit Freude mit Ihrer digitalen Anwendung interagieren können.
           </p>

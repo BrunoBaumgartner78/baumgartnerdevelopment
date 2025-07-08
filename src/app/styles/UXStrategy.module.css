@@ -8,6 +8,13 @@
 
 }
 
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--heading-color);
+}
 
 .intro {
   font-size: 1.15rem;

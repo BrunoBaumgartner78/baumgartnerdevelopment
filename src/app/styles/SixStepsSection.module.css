@@ -62,14 +62,14 @@
 }
 
 /* Cards Bereich */
-.cards {
+.sixcards {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   flex: 1 1 250px;
 }
 
-.card {
+.sixcard {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -81,18 +81,18 @@
   transition: transform 0.3s ease;
 }
 
-.card p {
+.sixcard p {
   margin: 0;
   font-weight: 500;
   font-size: 1rem;
   color: var(--text-secondary);
 }
 
-.card strong {
+.sixcard strong {
   font-size: 1.2rem;
 }
 
-.card:hover {
+.sixcard:hover {
   transform: translateY(-2px);
 }
 
@@ -102,12 +102,12 @@
     flex-direction: column;
   }
 
-  .cards {
+  .sixcards {
     flex-direction: column;
     justify-content: space-between;
   }
 
-  .card {
+  .sixcard {
     flex: 1;
   }
 }

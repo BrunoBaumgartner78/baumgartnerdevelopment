@@ -11,7 +11,7 @@ export default function DynamicRoutingPage() {
   return (
     <>
       <main className={styles.container}>
-        <h1>Dynamic Routing – Flexible Seitenstrukturen mit Next.js</h1>
+        <h1 className={styles.title}>Dynamic Routing – Flexible Seitenstrukturen mit Next.js</h1>
 
         <section className={styles.section}>
           <div className={styles.text}>

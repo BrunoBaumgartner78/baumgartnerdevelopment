@@ -59,7 +59,7 @@ export default function ServicesPage() {
     <>
       <div className={styles.container}>
         <section className={styles.hero}>
-          <h1>Unsere Leistungen</h1>
+          <h1 className={styles.title}>Unsere Leistungen</h1>
           <p>
             Wir entwickeln digitale Lösungen, die nicht nur modern aussehen, sondern Ihnen auch
             wirklich etwas bringen – mehr Reichweite, mehr Kunden, mehr Erfolg.

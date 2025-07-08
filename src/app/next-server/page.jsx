@@ -9,7 +9,7 @@ export default function NextServerPage() {
   return (
     <>
       <main className={styles.container}>
-        <h1>Next.js Server-Komponenten – Schnelligkeit & Effizienz</h1>
+        <h1 className={styles.title}>Next.js Server-Komponenten – Schnelligkeit & Effizienz</h1>
 
         <section className={styles.section}>
           <div className={styles.text}>
