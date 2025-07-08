@@ -67,8 +67,9 @@ export default function AboutTeam() {
         <FadeInSection>
           <PrototypesTechnologiesSection isDark={isDark} />
         </FadeInSection>
-        <FooterMenu isDark={isDark} />
+       
       </section>
+       <FooterMenu isDark={isDark} />
     </main>
   );
 }
