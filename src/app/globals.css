@@ -325,6 +325,87 @@ body.light {
   --comet-gradient: linear-gradient(to left, #13fbe2, transparent);
 }
 
+
+/* ===== Print Styles ===== */
+@media print {
+  /* Grundlayout: weißer Hintergrund, dunkle Schrift */
+  body {
+    background: white !important;
+    color: black !important;
+    font-family: 'Arial', sans-serif;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Alles verstecken, was auf Papier keinen Sinn ergibt */
+  .header,
+  .footer,
+  .menu-button,
+  .theme-toggle-button,
+  .button-group,
+  .btn,
+  video,
+  .hero-section::after,
+  .fade-in-section,
+  .contact-section {
+    display: none !important;
+  }
+
+  /* Links: URL einblenden */
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #444;
+  }
+
+  /* Keine Farben für Texte, sondern Graustufen */
+  * {
+    color: #000 !important;
+    background: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Bilder skalieren */
+  img,
+  .about-image {
+    max-width: 100%;
+    height: auto;
+    page-break-inside: avoid;
+  }
+
+  /* Seitenränder & Größe optimieren */
+  @page {
+    size: A4 portrait;
+    margin: 20mm;
+  }
+
+  /* Überschriften mit Abstand */
+  h1, h2, h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    page-break-after: avoid;
+  }
+
+  /* Absätze klarer abgrenzen */
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Druckbare Sectionen priorisieren */
+  .ctaSection,
+  .about-section,
+  .projects-section,
+  .page-wrapper {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    max-width: 100%;
+  }
+}
+
+
 /* Dark Theme */
 body.dark {
   --bg-color: #1c1c1c;

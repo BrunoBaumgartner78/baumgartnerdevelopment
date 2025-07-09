@@ -10,6 +10,7 @@ import '../globals.css';
 import WireframesTechnologiesSection from '../components/WireframeTechnologiesSection';
 import PrototypesTechnologiesSection from '../components/PrototypeTechnologiesSection';
 import UXTechnologiesSection from '../components/UXTechnologiesSection';
+import CallToDownload from '../components/OurClients';
 
 
 const teamMembers = [
@@ -67,7 +68,9 @@ export default function AboutTeam() {
         <FadeInSection>
           <PrototypesTechnologiesSection isDark={isDark} />
         </FadeInSection>
-       
+         <FadeInSection>
+       <CallToDownload isDark={isDark} />
+       </FadeInSection>
       </section>
        <FooterMenu isDark={isDark} />
     </main>
