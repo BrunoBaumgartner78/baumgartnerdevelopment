@@ -1,21 +1,18 @@
-// sanity.config.js (SERVER-ONLY)
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 
-import { schemaTypes } from './src/sanity/schemaTypes'
-
-
-
+import { schemaTypes } from './src/sanity/schemaTypes';
 
 export default defineConfig({
   name: 'default',
-  title: 'Baumgartner Development',
+  title: 'baumgartner-studio',
 
-  projectId: 'yjnl0hq1',
-  dataset: 'production',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
 
   plugins: [deskTool(), visionTool()],
+
   schema: {
     types: schemaTypes,
   },
