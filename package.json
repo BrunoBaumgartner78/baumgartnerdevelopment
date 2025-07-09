@@ -1,43 +1,112 @@
 {
   
   "name": "baumgartner-design",
+  
   "version": "0.1.0",
+  
   "type": "module",
+  
   "private": true,
+  
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+  
+    
+  "dev": "next dev --turbopack",
+  
+    
+  "build": "next build",
+  
+    
+  "start": "next start",
+  
+    
+  "lint": "next lint"
+  
   },
+  
   "dependencies": {
-    "@portabletext/react": "^3.2.1",
-    "@react-three/drei": "^10.4.2",
-    "@react-three/fiber": "^9.1.4",
-    "@sanity/client": "^7.6.0",
-    "@sanity/icons": "^3.7.4",
-    "@sanity/image-url": "^1.1.0",
-    "@sanity/vision": "^3.97.1",
-    "critters": "^0.0.23",
-    "framer-motion": "^12.23.0",
-    "lucide-react": "^0.525.0",
-    "next": "15.3.4",
-    "next-sanity": "^9.12.0",
-    "nodemailer": "^7.0.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0",
-    "react-intersection-observer": "^9.16.0",
-    "react-is": "^19.1.0",
-    "react-tsparticles": "^2.10.1",
-    "sanity": "^3.97.1",
-    "styled-components": "^6.1.19",
-    "three": "^0.178.0",
-    "tsparticles": "^2.10.1"
+  
+    
+  "@portabletext/react": "^3.2.1",
+  
+    
+  "@react-three/drei": "^10.4.2",
+  
+    
+  "@react-three/fiber": "^9.1.4",
+  
+    
+  "@sanity/client": "^7.6.0",
+  
+    
+  "@sanity/icons": "^3.7.4",
+  
+    
+  "@sanity/image-url": "^1.1.0",
+  
+    
+  "@sanity/vision": "^3.97.1",
+  
+    
+  "critters": "^0.0.23",
+  
+    
+  "framer-motion": "^6.2.8",
+  
+    
+  "lucide-react": "^0.525.0",
+  
+    
+  "next": "15.3.4",
+  
+    
+  "next-sanity": "^9.12.0",
+  
+    
+  "nodemailer": "^7.0.4",
+  
+    
+  "react": "^19.0.0",
+  
+    
+  "react-dom": "^19.0.0",
+  
+    
+  "react-icons": "^5.5.0",
+  
+    
+  "react-intersection-observer": "^9.16.0",
+  
+    
+  "react-is": "^19.1.0",
+  
+    
+  "react-tsparticles": "^2.10.1",
+  
+    
+  "sanity": "^3.97.1",
+  
+    
+  "styled-components": "^6.1.19",
+  
+    
+  "three": "^0.178.0",
+  
+    
+  "tsparticles": "^2.10.1"
+  
   },
+  
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.4"
+  
+    
+  "@eslint/eslintrc": "^3",
+  
+    
+  "eslint": "^9",
+  
+    
+  "eslint-config-next": "15.3.4"
+  
   }
 }
