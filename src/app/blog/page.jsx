@@ -1,13 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useContext, useEffect, useState } from 'react';
-import { ThemeContext } from '../../context/ThemeContext';
+import { useEffect, useState } from 'react';
 import { sanityClient, urlFor } from '../../lib/sanity';
 import styles from '../styles/Blog.module.css';
 
 export default function BlogPage() {
-  const { isDark } = useContext(ThemeContext);
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -15,9 +13,10 @@ export default function BlogPage() {
       const query = `*[_type == "post"] | order(publishedAt desc) {
         _id,
         title,
-        slug,
+        slug {
+          current
+        },
         publishedAt,
-        description,
         mainImage
       }`;
       const result = await sanityClient.fetch(query);
