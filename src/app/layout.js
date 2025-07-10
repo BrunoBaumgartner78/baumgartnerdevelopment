@@ -54,25 +54,31 @@ export default function RootLayout({ children }) {
   return (
     <html lang="de">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="canonical" href="https://baumgartner-development.ch" />
-        <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+  <link rel="canonical" href="https://baumgartner-development.ch" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-        <meta name="robots" content="index,follow" />
+  {/* Favicon und Icons – alle Tags müssen mit /> abgeschlossen werden */}
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Baumgartner Development",
-              url: "https://baumgartner-development.ch",
-            }),
-          }}
-        />
-      </head>
+  <meta name="robots" content="index,follow" />
+
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Baumgartner Development",
+        url: "https://baumgartner-development.ch",
+      }),
+    }}
+  />
+</head>
+
       <body className={orbitron.className}>
         <ThemeProvider>
           <InnerApp>{children}</InnerApp>
