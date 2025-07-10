@@ -12,6 +12,12 @@ export default function FooterMenu() {
     <footer className={`${styles.footer} `}>
       <div className={styles.content}>
         <h2>Baumgartner Design & Development</h2>
+        <div className={styles.ctaBox}>
+  <h3>Bereit für Ihr nächstes Webprojekt?</h3>
+  <p>Jetzt unverbindliche Erstberatung buchen oder direkt anfragen.</p>
+  <a href="/contact" className={styles.ctaButton}>Kostenlose Erstberatung starten</a>
+</div>
+
         <div className={styles.columns}>
           <div>
             <h4>Home</h4>

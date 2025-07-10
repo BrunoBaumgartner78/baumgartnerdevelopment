@@ -29,16 +29,16 @@ export default function HomePage() {
         <FadeInSection>
           <div className="text-center">
             <h1 className="main-title">Baumgartner Design & Development</h1>
-            <div className='flex'>
-              <p className="subtitle">Web Design made in Switzerland</p>
-<Image
-  className='swiss'
-  src="/images/switzerland.webp"
-  alt="Next.js Entwicklung"
-  width={40} // oder was passend ist
-  height={40}
-  priority // ersetzt fetchPriority="high"
-/>
+            <div className='flex justify-center items-center gap-2'>
+              <Image
+                className='swiss'
+                src="/images/switzerland.webp"
+                alt="Schweizer Qualität im Webdesign"
+                width={40}
+                height={40}
+                priority
+              />
+              <p className="subtitle">Professionelles Webdesign und moderne Entwicklung made in switzerland</p>
               
             </div>
 
@@ -67,14 +67,13 @@ export default function HomePage() {
 
       <section className="about-section" id='about-team'>
         <FadeInSection>
-         <Image
-  src="/images/team.webp"
-  alt="About Us"
-  width={800}
-  height={400}
-  className="about-image"
-/>
-
+          <Image
+            src="/images/team.webp"
+            alt="Unser Team bei Baumgartner Design & Development"
+            width={800}
+            height={400}
+            className="about-image"
+          />
         </FadeInSection>
         <FadeInSection>
           <AboutSection />
@@ -88,7 +87,7 @@ export default function HomePage() {
         <h2 className='contact'>Kontakt</h2>
         <address>
           <p><strong>Bruno Baumgartner</strong></p>
-          <p>Baumgarter Design & Development</p>
+          <p>Baumgartner Design & Development</p>
           <p>E-Mail: <a href="mailto:bruno@brainbloom.ch">bruno@brainbloom.ch</a></p>
           <p>Telefon: <a href="tel:+41782437227">+41 78 243 72 27</a></p>
         </address>

@@ -83,6 +83,18 @@
   color: var(--hover-color, #daa486);
 }
 
+/* Aktiver Menüpunkt */
+.accordionList li.active {
+  color: var(--active-color, #13fbe2); /* Farbe für aktiven Eintrag */
+  list-style-type: disc; /* Listensymbol (Kreis) vor dem Listeneintrag */
+  list-style-position: inside; /* Listensymbol innerhalb des Textblocks */
+  font-weight: bold; /* Optional: aktiver Eintrag etwas fetter */
+}
+.accordionList li.active a {
+  color: var(--active-color, #13fbe2);
+}
+
+
 /* Kometenschauer */
 .cometRain {
   position: absolute;
