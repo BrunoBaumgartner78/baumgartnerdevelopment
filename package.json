@@ -11,6 +11,11 @@
   "scripts": {
   
     
+"studio": "sanity dev",
+    
+  "build-studio": "sanity build",
+  
+    
   "dev": "next dev --turbopack",
   
     
@@ -101,6 +106,12 @@
   
     
   "@eslint/eslintrc": "^3",
+  
+    
+  "cross-env": "^7.0.3",
+  
+    
+  "dotenv": "^17.2.0",
   
     
   "eslint": "^9",
