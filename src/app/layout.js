@@ -57,6 +57,8 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="canonical" href="https://baumgartner-development.ch" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+
         <meta name="robots" content="index,follow" />
 
         <script
