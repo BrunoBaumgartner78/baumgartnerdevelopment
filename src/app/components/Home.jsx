@@ -42,7 +42,7 @@ export default function Home() {
       </section>
 
       <section className={styles.testimonials}>
-        <h2>Kundenmeinungen</h2>
+        <h2>Kunden- Meinungen</h2>
         <blockquote>
           <p>„Baumgartner Development hat unsere Website neu gestaltet – der Prozess war unkompliziert, professionell und das Ergebnis fantastisch!“</p>
           <footer>– Anna Meier, Coach</footer>
