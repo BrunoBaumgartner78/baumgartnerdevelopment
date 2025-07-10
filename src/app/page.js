@@ -17,8 +17,10 @@ import FaqSection from './components/FaqSection';
 import FooterMenu from './components/Footer';
 import TechnologiesSection from './components/TechnologieSection';
 import AboutSection from './components/AboutSection';
+import Home from './components/Home';
 import Image from 'next/image';
 import './globals.css';
+import HomeContent from './components/HomeContent';
 
 export default function HomePage() {
   const { isDark } = useContext(ThemeContext);
@@ -38,7 +40,7 @@ export default function HomePage() {
                 height={40}
                 priority
               />
-              <p className="subtitle">Professionelles Webdesign und moderne Entwicklung made in switzerland</p>
+              <p className="subtitle">Professionelles Webdesign und moderne Entwicklung made in Switzerland</p>
               
             </div>
 
@@ -79,10 +81,18 @@ export default function HomePage() {
           <AboutSection />
         </FadeInSection>
       </section>
-
+        <FadeInSection>
       <TechnologiesSection isDark={isDark} />
+      </FadeInSection>
+      <FadeInSection>
       <FaqSection isDark={isDark} />
-
+</FadeInSection>
+<FadeInSection>
+      <HomeContent isDark={isDark} />
+</FadeInSection>
+<FadeInSection>
+          <Home />
+        </FadeInSection>
       <section className="contact-section" id="contact">
         <h2 className='contact'>Kontakt</h2>
         <address>

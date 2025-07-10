@@ -1,53 +1,93 @@
-import { sanityClient, urlFor } from '@/lib/sanity';
-import { PortableText } from '@portabletext/react';
-import { notFound } from 'next/navigation';
+import { notFound } from 'next/navigation'
+import { sanityClient, urlFor } from '@/lib/sanityClient'
+import { PortableText } from '@portabletext/react'
+import styles from '../../styles/Blog.module.css' // CSS Modul importieren
 
-const query = `*[_type == "post" && slug.current == $slug][0]{
-  title,
-  publishedAt,
-  mainImage,
-  body
-}`;
+const query = `
+  *[_type == "post" && slug.current == $slug][0] {
+    title,
+    slug,
+    publishedAt,
+    mainImage,
+    body,
+    author->{
+      name,
+      image
+    }
+  }
+`
 
-export async function generateStaticParams() {
-  const slugs = await sanityClient.fetch(
-    `*[_type == "post" && defined(slug.current)][].slug.current`
-  );
-  return slugs.map((slug) => ({ slug }));
+const components = {
+  types: {
+    image: ({ value }) => (
+      <img
+        src={urlFor(value).width(800).url()}
+        alt={value.alt || 'Blogbild'}
+        className={styles.postImage}
+      />
+    ),
+  },
+  marks: {
+    link: ({ value, children }) => (
+      <a href={value.href} target="_blank" rel="noopener noreferrer" className={styles.postLink}>
+        {children}
+      </a>
+    ),
+  },
+  block: {
+    h2: ({ children }) => <h2 className={styles.postHeading}>{children}</h2>,
+    normal: ({ children }) => <p className={styles.postParagraph}>{children}</p>,
+  },
 }
 
-// Server-Komponente: context muss awaited werden (Next.js 13+)
-export default async function PostPage(context) {
-  const { params } = await context;
-  const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
+export default async function PostPage({ params }) {
+  const resolvedParams = await params
+  const slug = Array.isArray(resolvedParams.slug) ? resolvedParams.slug[0] : resolvedParams.slug
 
-  const post = await sanityClient.fetch(query, { slug });
+  const post = await sanityClient.fetch(query, { slug })
 
-  if (!post) {
-    return notFound();
-  }
+  if (!post) return notFound()
 
   return (
-    <article style={{ maxWidth: 800, margin: '4rem auto', padding: '0 1rem' }}>
-      <h1>{post.title}</h1>
-      {post.publishedAt && (
-        <time dateTime={post.publishedAt}>
-          {new Date(post.publishedAt).toLocaleDateString('de-CH')}
-        </time>
-      )}
+    <main className={styles.postContainer}>
+      <article>
+        <h1 className={styles.postTitle}>{post.title}</h1>
+        <p className={styles.postDate}>
+          {new Date(post.publishedAt).toLocaleDateString('de-CH', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          })}
+        </p>
 
-      {post.mainImage && (
-  <img
-    src={urlFor(post.mainImage).width(800).url()}
-    alt={post.title}
-    style={{ width: '100%', borderRadius: '12px', margin: '1rem 0' }}
-  />
-)}
+        {post.mainImage && (
+          <img
+            src={urlFor(post.mainImage).width(1200).url()}
+            alt={post.title}
+            className={styles.postMainImage}
+          />
+        )}
 
+        <section className={styles.postContent}>
+          <PortableText value={post.body} components={components} />
+        </section>
 
-      <section style={{ marginTop: '2rem' }}>
-        <PortableText value={post.body} />
-      </section>
-    </article>
-  );
+        {post.author && (
+          <footer className={styles.postAuthor}>
+            {post.author.image && (
+              <img
+                src={urlFor(post.author.image).width(80).height(80).url()}
+                alt={post.author.name}
+                className={styles.authorImage}
+              />
+            )}
+            <div className={styles.authorInfo}>
+              <p className={styles.authorName}>{post.author.name}</p>
+              <p className={styles.authorLabel}>Autor</p>
+            </div>
+          </footer>
+        )}
+      </article>
+    </main>
+  )
 }
