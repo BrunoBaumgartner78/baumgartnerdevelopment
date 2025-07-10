@@ -326,84 +326,6 @@ body.light {
 }
 
 
-/* ===== Print Styles ===== */
-@media print {
-  /* Grundlayout: weißer Hintergrund, dunkle Schrift */
-  body {
-    background: white !important;
-    color: black !important;
-    font-family: 'Arial', sans-serif;
-    -webkit-print-color-adjust: exact;
-  }
-
-  /* Alles verstecken, was auf Papier keinen Sinn ergibt */
-  .header,
-  .footer,
-  .menu-button,
-  .theme-toggle-button,
-  .button-group,
-  .btn,
-  video,
-  .hero-section::after,
-  .fade-in-section,
-  .contact-section {
-    display: none !important;
-  }
-
-  /* Links: URL einblenden */
-  a::after {
-    content: " (" attr(href) ")";
-    font-size: 0.85em;
-    color: #444;
-  }
-
-  /* Keine Farben für Texte, sondern Graustufen */
-  * {
-    color: #000 !important;
-    background: none !important;
-    box-shadow: none !important;
-  }
-
-  /* Bilder skalieren */
-  img,
-  .about-image {
-    max-width: 100%;
-    height: auto;
-    page-break-inside: avoid;
-  }
-
-  /* Seitenränder & Größe optimieren */
-  @page {
-    size: A4 portrait;
-    margin: 20mm;
-  }
-
-  /* Überschriften mit Abstand */
-  h1, h2, h3 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    page-break-after: avoid;
-  }
-
-  /* Absätze klarer abgrenzen */
-  p {
-    margin-bottom: 1rem;
-    line-height: 1.5;
-    orphans: 3;
-    widows: 3;
-  }
-
-  /* Druckbare Sectionen priorisieren */
-  .ctaSection,
-  .about-section,
-  .projects-section,
-  .page-wrapper {
-    display: block !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
-    max-width: 100%;
-  }
-}
 
 
 /* Dark Theme */
@@ -439,4 +361,110 @@ body.dark {
 
   --hover-color: #daa486;
   --comet-gradient: linear-gradient(to left, white, transparent);
+}
+/* ========== Druckversion (print only) ========== */
+@media print {
+  /* Unsichtbare Elemente für Druck */
+  header,
+  nav,
+  footer,
+  .no-print,
+  .mobile-nav,
+  .video,
+  .interactive,
+  .cookie-banner,
+  .button,
+  .menu,
+  .hero-image,
+  .carousel,
+  canvas,
+  .scroll-indicator-wrapper,
+  .scroll-indicator-track,
+  .scroll-indicator-thumb,
+  .projects-section,
+  .btn,
+  .swiss,
+  .flex img,
+  .button-group {
+    display: none !important;
+  }
+
+  * {
+    cursor: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.5;
+    padding: 2cm;
+  }
+
+  main,
+  article,
+  section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #444;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  p,
+  blockquote,
+  table {
+    page-break-inside: avoid;
+  }
+
+  .page-break {
+    page-break-after: always;
+  }
+
+  /* Layout-Anpassung für Hero Section */
+  .hero-section {
+    padding: 2cm 1cm;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .hero-section h1 {
+    font-size: 24pt;
+    margin-bottom: 0.5cm;
+    text-align: center;
+  }
+
+  .hero-section .subtitle {
+    font-size: 14pt;
+    text-align: center;
+    margin-bottom: 0.5cm;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  /* Seite formatieren */
+  @page {
+    margin: 2cm;
+    size: A4 portrait;
+  }
+
+  /* Verhindere Seitenumbrüche mitten im Block */
+  .hero-section,
+  .text-center,
+  h1,
+  p {
+    page-break-inside: avoid;
+  }
 }
