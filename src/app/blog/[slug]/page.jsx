@@ -3,6 +3,13 @@ import { sanityClient, urlFor } from '@/lib/sanityClient'
 import { PortableText } from '@portabletext/react'
 import styles from '@/app/styles/Blog.module.css'
 
+export async function generateStaticParams() {
+  const posts = await sanityClient.fetch(`*[_type == "post"]{ slug }`)
+  return posts.map(post => ({
+    slug: post.slug.current,
+  }))
+}
+
 const query = `
   *[_type == "post" && slug.current == $slug][0] {
     title,
@@ -29,21 +36,28 @@ const components = {
   },
   marks: {
     link: ({ value, children }) => (
-      <a href={value.href} target="_blank" rel="noopener noreferrer" className={styles.postLink}>
+      <a
+        href={value.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.postLink}
+      >
         {children}
       </a>
     ),
   },
   block: {
-    h2: ({ children }) => <h2 className={styles.postHeading}>{children}</h2>,
-    normal: ({ children }) => <p className={styles.postParagraph}>{children}</p>,
+    h2: ({ children }) => (
+      <h2 className={styles.postHeading}>{children}</h2>
+    ),
+    normal: ({ children }) => (
+      <p className={styles.postParagraph}>{children}</p>
+    ),
   },
 }
 
 export default async function PostPage({ params }) {
-  // KEIN await nötig – direkt verwenden
-  const slug = typeof params.slug === 'string' ? params.slug : params.slug?.[0]
-
+  const slug = params.slug
   const post = await sanityClient.fetch(query, { slug })
 
   if (!post) return notFound()
