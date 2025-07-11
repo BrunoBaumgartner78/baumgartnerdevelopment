@@ -4,7 +4,6 @@ import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 import { FadeInSection } from './components/FadeInSection';
 import ScrollIndicator from './components/ScrollIndicator';
-import Model from './components/ThreeDScene';
 import ServicesSection from './components/ServiceSection';
 import NextJsSection from './components/NextJsSection';
 import WebdesignSection from './components/WebdesignSection';
@@ -22,11 +21,35 @@ import Image from 'next/image';
 import './styles/Index.module.css';
 import './globals.css';
 import styles from './styles/Index.module.css';
-
 import HomeContent from './components/HomeContent';
+import dynamic from 'next/dynamic';
+import { useState, useEffect, useRef } from 'react';
+
+
+
+// Lazy load ThreeDScene (kein SSR, also nur clientseitig)
+const LazyThreeDScene = dynamic(() => import('./components/ThreeDScene'), {
+  ssr: false,
+  loading: () => <p>Lade 3D Modell...</p>,
+});
 
 export default function HomePage() {
   const { isDark } = useContext(ThemeContext);
+  const [loadModel, setLoadModel] = useState(false);
+  const ref = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setLoadModel(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main className={`page-wrapper ${isDark ? 'dark' : 'light'}`}>
@@ -44,7 +67,6 @@ export default function HomePage() {
                 priority
               />
               <p className="subtitle">Professionelles Webdesign und moderne Entwicklung made in Switzerland</p>
-              
             </div>
 
             <div className="button-group">
@@ -57,12 +79,13 @@ export default function HomePage() {
         </FadeInSection>
       </section>
 
-      <section className="projects-section" id="projects">
-        <Model />
+      <section ref={ref} className="projects-section" id="projects" style={{ minHeight: '600px' }}>
+        {loadModel ? <LazyThreeDScene /> : <p>Scroll down to load 3D model...</p>}
       </section>
-      <FadeInSection>
+
       <HomeContent isDark={isDark} />
-        </FadeInSection>
+     
+      
       <FadeInSection>
         <Home />
       </FadeInSection>

@@ -5,7 +5,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 
 function GLBModel() {
-  const { scene } = useGLTF('/models/mclaren.glb'); // <-- ersetze Pfad bei Bedarf
+  const { scene } = useGLTF('/models/mclaren.glb'); // Pfad zum Modell anpassen
   return <primitive object={scene} />;
 }
 
@@ -14,27 +14,20 @@ function CameraController({ scrollY }) {
 
   useFrame(() => {
     if (scrollY < 1000) {
-      // 720° horizontal (2 volle Drehungen)
       const angle = (scrollY / 1000) * Math.PI * 2;
       camera.position.x = 5 * Math.sin(angle);
       camera.position.z = 5 * Math.cos(angle);
       camera.position.y = 0;
       camera.lookAt(0, 0, 0);
     } else if (scrollY < 1500) {
-      // Zoom in
-      const zoomFactor = 5 - ((scrollY - 1000) / 500) * 3; // 5 → 2
+      const zoomFactor = 5 - ((scrollY - 1000) / 500) * 3;
       camera.position.z = zoomFactor;
       camera.position.x = 0;
       camera.position.y = 0;
-    } else if (scrollY < 1800) {
-      // Vertikale Rotation (180°)
-    
     } else {
-      // Objekt ausblenden (nur Kamera fix)
       camera.position.set(0, 0, 2);
       camera.lookAt(0, 0, 0);
     }
-
     camera.updateProjectionMatrix();
   });
 
@@ -51,8 +44,7 @@ export default function ThreeDScene() {
   }, []);
 
   return (
-  <Canvas style={{ height: '130vh', width: '100%'}}>
-
+    <Canvas style={{ height: '130vh', width: '100%' }}>
       <ambientLight intensity={1.2} />
       <pointLight position={[10, 10, 10]} />
       <CameraController scrollY={scrollY} />

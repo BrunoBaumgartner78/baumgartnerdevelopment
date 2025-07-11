@@ -7,3 +7,4 @@ const Studio = dynamic(() => import('@/sanity/studio'), { ssr: false })
 export default function StudioPage() {
   return <Studio />
 }
+
