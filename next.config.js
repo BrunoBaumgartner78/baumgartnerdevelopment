@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizeCss: true, // falls du das willst
+    // hier nur andere Optionen, keine Booleans
+    optimizeCss: true,
+    // serverActions: true, // Entfernen oder auskommentieren!
   },
-}
+};
 
 export default nextConfig;
-

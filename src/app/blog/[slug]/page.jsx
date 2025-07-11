@@ -1,7 +1,12 @@
 import { notFound } from 'next/navigation'
 import { sanityClient, urlFor } from '@/lib/sanityClient'
 import { PortableText } from '@portabletext/react'
-import styles from '../../styles/Blog.module.css' // CSS Modul importieren
+import styles from '@/app/styles/Blog.module.css'
+
+export async function generateStaticParams() {
+  const posts = await sanityClient.fetch(`*[_type == "post"]{ "slug": slug.current }`)
+  return posts.map(post => ({ slug: post.slug }))
+}
 
 const query = `
   *[_type == "post" && slug.current == $slug][0] {
@@ -41,9 +46,7 @@ const components = {
 }
 
 export default async function PostPage({ params }) {
-  const resolvedParams = await params
-  const slug = Array.isArray(resolvedParams.slug) ? resolvedParams.slug[0] : resolvedParams.slug
-
+  const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug
   const post = await sanityClient.fetch(query, { slug })
 
   if (!post) return notFound()

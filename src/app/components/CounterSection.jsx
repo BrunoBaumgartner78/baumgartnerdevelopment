@@ -4,6 +4,8 @@ import { useRef, useState, useEffect, useContext } from 'react'
 import styles from '../styles/CounterSection.module.css'
 import AnimatedCounter from './AnimatedCounter'
 import { ThemeContext } from '../../context/ThemeContext';
+import Image from 'next/image'
+
 
 export default function CounterSection() {
   const { isDark } = useContext(ThemeContext)  // Dark Mode aus Context holen
@@ -35,13 +37,19 @@ export default function CounterSection() {
       className={`${styles.counterSection}`}
       id="counter"
     >
-      <div className={styles.imageContainer}>
-        <img
-          src="/images/agency-team.webp"
-          alt="Team Background"
-          loading="lazy"
-        />
-      </div>
+<div className={styles.imageContainer}>
+      <Image
+        src="/images/agency-team.webp"
+        alt="Professionelles Webdesign-Team in Solothurn"
+        width={800}
+        height={500}
+        priority={false} // falls ganz oben auf der Seite: auf true setzen
+        className={styles.responsiveImage}
+        quality={85}
+        placeholder="blur"
+        blurDataURL="/images/agency-team.webp" // optional: kleine Blur-Version
+      />
+    </div>
 
       <div className={styles.contentWrapper}>
         <div className={styles.counterWrapper}>

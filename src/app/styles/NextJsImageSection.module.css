@@ -56,6 +56,21 @@
   object-fit: cover;
   border-radius: 12px;
 }
+.imageContainer {
+  max-width: 100%;
+  margin: 2rem 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.responsiveImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
 
 /* Theme Variablen – bereits global definiert in body.light / body.dark oder html.light / html.dark
    z. B.:

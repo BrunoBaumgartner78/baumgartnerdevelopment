@@ -19,7 +19,10 @@ import TechnologiesSection from './components/TechnologieSection';
 import AboutSection from './components/AboutSection';
 import Home from './components/Home';
 import Image from 'next/image';
+import './styles/Index.module.css';
 import './globals.css';
+import styles from './styles/Index.module.css';
+
 import HomeContent from './components/HomeContent';
 
 export default function HomePage() {
@@ -57,7 +60,12 @@ export default function HomePage() {
       <section className="projects-section" id="projects">
         <Model />
       </section>
-
+      <FadeInSection>
+      <HomeContent isDark={isDark} />
+        </FadeInSection>
+      <FadeInSection>
+        <Home />
+      </FadeInSection>
       <ServicesSection isDark={isDark} />
       <CounterSection isDark={isDark} />
       <NextJsSection isDark={isDark} />
@@ -69,13 +77,17 @@ export default function HomePage() {
 
       <section className="about-section" id='about-team'>
         <FadeInSection>
-          <Image
-            src="/images/team.webp"
-            alt="Unser Team bei Baumgartner Design & Development"
-            width={800}
-            height={400}
-            className="about-image"
-          />
+           <Image
+        src="/images/team.webp"
+        alt="Unser Team bei Baumgartner Design & Development"
+        width={800}
+        height={400}
+        quality={85}
+        priority={true} // Nur falls das Bild above-the-fold ist
+        placeholder="blur"
+        blurDataURL="/images/team.webp" // Optional (siehe Hinweis unten)
+        className={styles.responsiveImage}
+      />
         </FadeInSection>
         <FadeInSection>
           <AboutSection />
@@ -86,13 +98,8 @@ export default function HomePage() {
       </FadeInSection>
       <FadeInSection>
       <FaqSection isDark={isDark} />
-</FadeInSection>
-<FadeInSection>
-      <HomeContent isDark={isDark} />
-</FadeInSection>
-<FadeInSection>
-          <Home />
-        </FadeInSection>
+      </FadeInSection>
+
       <section className="contact-section" id="contact">
         <h2 className='contact'>Kontakt</h2>
         <address>

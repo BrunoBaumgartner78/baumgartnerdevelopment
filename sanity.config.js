@@ -3,14 +3,21 @@ import { deskTool } from 'sanity/desk'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './src/sanity/schemaTypes'
 
-console.log('projectId:', import.meta.env.SANITY_STUDIO_PROJECT_ID)
-console.log('dataset:', import.meta.env.SANITY_STUDIO_DATASET)
-
 export default defineConfig({
-  projectId: import.meta.env.SANITY_STUDIO_PROJECT_ID,
-  dataset: import.meta.env.SANITY_STUDIO_DATASET,
-  apiVersion: import.meta.env.SANITY_STUDIO_API_VERSION || '2023-01-01',
-  plugins: [deskTool(), visionTool()],
-  schema: { types: schemaTypes },
-  server: { port: 3333 },
+  name: 'default',
+  title: 'Baumgartner Studio',
+
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2023-01-01',
+  basePath: '/studio', // wichtig für Next.js Routing
+
+  plugins: [
+    deskTool(),    // <- Das ist der wichtigste Tool
+    visionTool(),  // Optional: Sanity Vision Tool
+  ],
+
+  schema: {
+    types: schemaTypes,
+  },
 })
