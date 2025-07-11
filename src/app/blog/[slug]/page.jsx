@@ -3,11 +3,6 @@ import { sanityClient, urlFor } from '@/lib/sanityClient'
 import { PortableText } from '@portabletext/react'
 import styles from '@/app/styles/Blog.module.css'
 
-export async function generateStaticParams() {
-  const posts = await sanityClient.fetch(`*[_type == "post"]{ "slug": slug.current }`)
-  return posts.map(post => ({ slug: post.slug }))
-}
-
 const query = `
   *[_type == "post" && slug.current == $slug][0] {
     title,
@@ -46,7 +41,9 @@ const components = {
 }
 
 export default async function PostPage({ params }) {
-  const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug
+  // KEIN await nötig – direkt verwenden
+  const slug = typeof params.slug === 'string' ? params.slug : params.slug?.[0]
+
   const post = await sanityClient.fetch(query, { slug })
 
   if (!post) return notFound()

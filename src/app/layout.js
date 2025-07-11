@@ -9,6 +9,7 @@ const orbitron = Orbitron({
   subsets: ['latin'],
   weight: ['400', '600', '800'],
   display: 'swap',
+  preload: true,
 });
 
 export const viewport = {
