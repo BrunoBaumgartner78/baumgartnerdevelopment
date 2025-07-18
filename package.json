@@ -9,6 +9,9 @@
   "private": true,
   
   "scripts": {
+
+  "sanity:cleanup": "node scripts/cleanArray.js",
+
   
     
   "studio": "sanity dev",
