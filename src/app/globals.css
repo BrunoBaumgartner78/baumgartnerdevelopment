@@ -555,3 +555,7 @@ body.dark .theme-toggle-button:hover {
     page-break-inside: avoid;
   }
 }
+dl dt,
+dl dd {
+  margin-bottom: 3rem; /* Abstand unter jeder Frage und Antwort */
+}

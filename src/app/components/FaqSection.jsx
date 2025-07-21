@@ -1,9 +1,11 @@
 'use client';
 
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import styles from '../styles/FaqSection.module.css';
 import { FaQuestionCircle, FaUserCircle } from 'react-icons/fa';
 import { ThemeContext } from '../../context/ThemeContext';
+
+
 
 const messages = [
   {

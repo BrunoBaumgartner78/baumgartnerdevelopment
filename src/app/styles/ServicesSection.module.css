@@ -32,6 +32,7 @@
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  list-style: none;
 }
 
 /* Einzelne Karte */
@@ -118,6 +119,7 @@
   padding: 0;
   max-width: 700px;
   margin: 0 auto;
+  
 }
 
 .benefits li {
@@ -128,6 +130,7 @@
   line-height: 1.6;
   margin-bottom: 1.25rem;
   color: var(--text-primary);
+  list-style: none;
 }
 
 .benefits li::before {

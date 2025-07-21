@@ -17,21 +17,20 @@
   transition: color 0.3s ease;
 }
 
-/* Grid Layout */
 .grid {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  justify-items: center;
-  align-items: center;
-  padding: 0;
-  list-style: none;
-  margin: 0 auto;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  justify-content: center;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
 }
 
-/* Card Styles */
+
 .card {
+  width: 160px;        /* feste Breite */
+  height: 180px;       /* feste Höhe */
   background-color: var(--card-bg);
   padding: 1rem;
   border-radius: 12px;
@@ -41,20 +40,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 150px;
-  min-height: 8rem;
+  justify-content: center;  /* Zentriert Inhalt vertikal */
   cursor: default;
 }
 
-/* Hover- & Fokus-Interaktion */
-.card:hover,
-.card:focus-visible {
-  transform: scale(1.08) rotate(1.5deg);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  outline: 3px solid var(--accent-color);
-  outline-offset: 6px;
+
+@media (min-width: 640px) {
+  .card {
+    max-width: 160px;
+  }
 }
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr); /* max 4 Spalten */
+    gap: 2rem;
+  }
+  .card {
+    max-width: 180px;
+  }
+}
+
 
 /* Icon Styles */
 .icon {
@@ -78,16 +84,4 @@
   line-height: 1.4;
 }
 
-/* Responsivität: Bessere Skalierung */
-@media (min-width: 640px) {
-  .card {
-    max-width: 180px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .card {
-    max-width: 200px;
-  }
-}
 
