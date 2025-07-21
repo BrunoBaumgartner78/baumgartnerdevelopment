@@ -1,3 +1,4 @@
+/* Section Styles */
 .section {
   padding: 2rem;
   background: var(--bg-color);
@@ -6,9 +7,33 @@
   color: var(--text-color);
 }
 
+/* Überschrift */
+.heading {
+  font-size: clamp(2rem, 2.5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--heading-color);
+  font-family: 'Orbitron', sans-serif;
+  transition: color 0.3s ease;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  justify-items: center;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Card Styles */
 .card {
   background-color: var(--card-bg);
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 12px;
   text-align: center;
   box-shadow: var(--card-shadow);
@@ -16,60 +41,53 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80px;
-  max-width: 300px;
-  height: 8rem;
+  width: 100%;
+  max-width: 150px;
+  min-height: 8rem;
+  cursor: default;
 }
 
-.card:hover {
-  transform: scale(1.1) rotate(2deg);
+/* Hover- & Fokus-Interaktion */
+.card:hover,
+.card:focus-visible {
+  transform: scale(1.08) rotate(1.5deg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  outline: 3px solid var(--accent-color);
+  outline-offset: 6px;
 }
 
-.heading {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 2.5rem;
-  color: var(--heading-color);
-  font-family: 'Orbitron', sans-serif;
+/* Icon Styles */
+.icon {
+  font-size: 3rem;
+  color: var(--icon-color, #007acc);
   transition: color 0.3s ease;
 }
 
-.grid {
-  display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(2, 1fr); /* mobile default */
-  justify-items: center;
-  align-items: center;
+/* Dark/Light Mode Icons */
+[data-theme="dark"] .icon {
+  color: var(--accent-color, #4db5ff);
 }
 
+/* Label Styles */
+.label {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+  line-height: 1.4;
+}
+
+/* Responsivität: Bessere Skalierung */
 @media (min-width: 640px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
+  .card {
+    max-width: 180px;
   }
 }
 
 @media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(5, 1fr); /* Desktop: 5 Icons pro Reihe */
+  .card {
+    max-width: 200px;
   }
 }
 
-.icon {
-  font-size: 3rem;
-  color: var(--icon-color);
-  transition: color 0.3s ease;
-}
-
-.label {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--text-color);
-  transition: color 0.3s ease;
-}

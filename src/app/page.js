@@ -126,7 +126,7 @@ export default function HomePage() {
 
         {/* About Team */}
         <section className="about-section" id="about-team" aria-labelledby="about-title">
-          <h2 id="about-title" className="sr-only">Über unser Team</h2>
+          <h2 id="about-team-title" className="sr-only">Über unser Team</h2>
           <FadeInSection>
             <Image
               src="/images/team.webp"

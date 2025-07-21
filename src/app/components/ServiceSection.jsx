@@ -74,22 +74,25 @@ export default function ServicesSection() {
         Profitieren Sie von meiner langjährigen Erfahrung und lassen Sie sich Ihre individuelle Website erstellen.
         Kontaktieren Sie mich gerne, um gemeinsam Ihre WordPress-Website umzusetzen.
       </p>
-      <div className={styles.cards} role="list">
-        {services.map(({ title, description, icon: Icon }, i) => (
-          <article key={i} className={styles.card} role="listitem">
-            <div className={styles.iconWrapper}>
-              <Icon
-                className={styles.icon}
-                aria-hidden="true"
-                focusable="false"
-              />
-              <div className={styles.iconBackground} />
-            </div>
-            <h3 className={styles.cardTitle}>{title}</h3>
-            <p className={styles.cardDescription}>{description}</p>
-          </article>
+
+      <ul className={styles.cards} role="list">
+        {services.map(({ title, description, icon: Icon }) => (
+          <li key={title} role="listitem" className={styles.cardWrapper}>
+            <article className={styles.card}>
+              <div className={styles.iconWrapper}>
+                <Icon
+                  className={styles.icon}
+                  aria-hidden="true"
+                  focusable="false"
+                />
+                <div className={styles.iconBackground} />
+              </div>
+              <h3 className={styles.cardTitle}>{title}</h3>
+              <p className={styles.cardDescription}>{description}</p>
+            </article>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

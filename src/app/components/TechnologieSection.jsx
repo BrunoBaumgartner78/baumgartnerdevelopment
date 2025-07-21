@@ -59,26 +59,27 @@ export default function TechnologiesSection() {
         Unsere Technologien
       </h2>
 
-      <div className={styles.grid}>
+      {/* Semantisch korrekt: ul/li statt ARIA */}
+      <ul className={styles.grid} role="list">
         {technologies.map(({ name, icon: Icon }) => (
-          <motion.div
+          <motion.li
             key={name}
-            whileHover={{ scale: 1.2, rotate: 5 }}
+            whileHover={{ scale: 1.1, rotate: 3 }}
+            whileFocus={{ scale: 1.1, rotate: 3 }}
             transition={{ type: 'spring', stiffness: 300 }}
             className={styles.card}
-            role="listitem"
+            tabIndex={0}
+            aria-label={`Technologie: ${name}`}
           >
             <Icon
               className={styles.icon}
               aria-hidden="true"
               focusable="false"
-              // Optional: Für Farbanpassung je nach Dark/Light Mode
-              // style={{ color: isDark ? '#FFF' : '#000' }}
             />
             <p className={styles.label}>{name}</p>
-          </motion.div>
+          </motion.li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

@@ -35,6 +35,15 @@ const messages = [
 export default function FaqSection() {
   const { isDark } = useContext(ThemeContext);
 
+  // Hilfsfunktion: Paare aus Frage + Antwort extrahieren
+  const faqPairs = [];
+  for (let i = 0; i < messages.length; i += 2) {
+    faqPairs.push({
+      question: messages[i]?.text,
+      answer: messages[i + 1]?.text,
+    });
+  }
+
   return (
     <section
       className={`${styles.faqSection} ${isDark ? styles.dark : styles.light}`}
@@ -50,25 +59,23 @@ export default function FaqSection() {
           </p>
         </div>
 
-        <div className={styles.chatBox} role="list" aria-label="Fragen und Antworten">
+        <div className={styles.chatBox} aria-label="Fragen und Antworten">
           <dl>
-            {messages.map((msg, index) => (
-              <div
-                key={index}
-                className={`${styles.message} ${
-                  msg.type === 'question' ? styles.question : styles.answer
-                }`}
-                role="listitem"
-              >
-                <div className={styles.icon} aria-hidden="true">
-                  {msg.type === 'question' ? <FaQuestionCircle /> : <FaUserCircle />}
-                </div>
-                {msg.type === 'question' ? (
-                  <dt className={styles.text}>{msg.text}</dt>
-                ) : (
-                  <dd className={styles.text}>{msg.text}</dd>
-                )}
-              </div>
+            {faqPairs.map(({ question, answer }, index) => (
+              <React.Fragment key={index}>
+                <dt className={styles.question}>
+                  <span className={styles.icon} aria-hidden="true">
+                    <FaQuestionCircle />
+                  </span>
+                  <span className={styles.text}>{question}</span>
+                </dt>
+                <dd className={styles.answer}>
+                  <span className={styles.icon} aria-hidden="true">
+                    <FaUserCircle />
+                  </span>
+                  <span className={styles.text}>{answer}</span>
+                </dd>
+              </React.Fragment>
             ))}
           </dl>
         </div>

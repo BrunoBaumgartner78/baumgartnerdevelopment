@@ -8,7 +8,7 @@ export default function AboutSection() {
       aria-labelledby="about-title"
       role="region"
     >
-      <h2 id="about-title" className={styles.title}>Über uns</h2>
+      <h2 id="about-us-title" className={styles.title}>Über uns</h2>
       
       <p>
         Wir sind ein innovatives Webdesign-Studio aus der Schweiz,
