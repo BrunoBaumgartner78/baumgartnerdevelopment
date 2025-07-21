@@ -25,21 +25,33 @@ const webdesignServices = [
 
 export default function WebdesignSection() {
   return (
-    <section className={styles.servicesSection}>
-      <h2 className={styles.sectionTitle}>Webdesign Leistungen</h2>
+    <section
+      className={styles.servicesSection}
+      aria-labelledby="webdesign-section-title"
+    >
+      <h2 id="webdesign-section-title" className={styles.sectionTitle}>
+        Webdesign Leistungen
+      </h2>
       <p className={styles.sectionIntro}>
         Maßgeschneiderte Webdesign-Lösungen, die Ihre Zielgruppe ansprechen und Ihre Marke stärken.
       </p>
       <div className={styles.cards}>
         {webdesignServices.map(({ title, description, icon: Icon }, i) => (
-          <div key={i} className={styles.card}>
-            <div className={styles.iconWrapper}>
+          <article
+            key={i}
+            className={styles.card}
+            role="region"
+            aria-labelledby={`service-title-${i}`}
+          >
+            <div className={styles.iconWrapper} aria-hidden="true">
               <Icon className={styles.icon} />
               <div className={styles.iconBackground} />
             </div>
-            <h3 className={styles.cardTitle}>{title}</h3>
+            <h3 id={`service-title-${i}`} className={styles.cardTitle}>
+              {title}
+            </h3>
             <p className={styles.cardDescription}>{description}</p>
-          </div>
+          </article>
         ))}
       </div>
     </section>

@@ -1,17 +1,18 @@
+'use client';
+
 import styles from '../styles/NextServer.module.css';
 import Image from 'next/image';
 import FooterMenu from '../components/Footer';
 import CostSection from '../components/CostSection';
 import SixStepsSection from '../components/SixStepSection';
 
-
 export default function NextServerPage() {
   return (
     <>
       <main className={styles.container}>
-        <h1>Next.js Server-Komponenten – Schnelligkeit & Effizienz</h1>
+        <h1 tabIndex={-1}>Next.js Server-Komponenten – Schnelligkeit &amp; Effizienz</h1>
 
-        <section className={styles.section}>
+        <section className={styles.section} aria-label="Was sind Server-Komponenten?">
           <div className={styles.text}>
             <h2>Was sind Server-Komponenten?</h2>
             <p>
@@ -27,47 +28,48 @@ export default function NextServerPage() {
           <div className={styles.image}>
             <Image
               src="/images/team1.webp"
-              alt="Next.js Architektur"
+              alt="Architektur von Next.js Server-Komponenten"
               fill
               sizes="(max-width: 768px) 100vw, 600px"
               className={styles.img}
+              loading="eager"
             />
           </div>
         </section>
 
-        <section className={styles.sectionAlt}>
+        <section className={styles.sectionAlt} aria-label="Vorteile von Server-Komponenten">
           <div className={styles.image}>
             <Image
               src="/images/team2.webp"
-              alt="Server-Komponenten Konzept"
+              alt="Konzept und Vorteile von Server-Komponenten in Next.js"
               fill
               sizes="(max-width: 768px) 100vw, 800px"
               className={styles.img}
-              load="lasy"
+              loading="lazy"
             />
           </div>
           <div className={styles.text}>
             <h2>Vorteile von Server-Komponenten</h2>
             <ul>
-              <li> Bessere Ladezeiten durch weniger JS im Client</li>
-              <li> Direkter Zugriff auf Server-Funktionen (z. B. DB, Auth)</li>
-              <li> Perfekt für statische oder datengetriebene Seiten</li>
-              <li> Kein Zustand oder Interaktion erforderlich</li>
+              <li>Bessere Ladezeiten durch weniger JavaScript im Client</li>
+              <li>Direkter Zugriff auf Server-Funktionen (z. B. Datenbank, Authentifizierung)</li>
+              <li>Perfekt für statische oder datengetriebene Seiten</li>
+              <li>Kein Zustand oder Interaktion erforderlich</li>
             </ul>
           </div>
         </section>
 
-        <section className={styles.methods}>
+        <section className={styles.methods} aria-label="Typische Einsatzbereiche">
           <h2>Typische Einsatzbereiche</h2>
           <ul>
-            <li>Artikel, Blogs, Info-Seiten</li>
-            <li>Dashboard mit Server-Data (ohne JS-State)</li>
+            <li>Artikel, Blogs, Informationsseiten</li>
+            <li>Dashboard mit Server-Daten (ohne JavaScript-State)</li>
             <li>Authentifizierte Inhalte über Middleware</li>
-            <li>Initial-Load von Produktlisten</li>
+            <li>Initiale Ladezeit von Produktlisten</li>
           </ul>
         </section>
 
-        <section className={styles.section}>
+        <section className={styles.section} aria-label="Client vs. Server Komponenten in Next.js">
           <div className={styles.text}>
             <h2>Client vs. Server Komponenten</h2>
             <p>
@@ -81,14 +83,15 @@ export default function NextServerPage() {
           <div className={styles.image}>
             <Image
               src="/images/team5.webp"
-              alt="Client vs Server Komponenten"
+              alt="Vergleich Client- und Server-Komponenten"
               fill
               sizes="(max-width: 768px) 100vw, 600px"
               className={styles.img}
-              load="lasy"
+              loading="lazy"
             />
           </div>
         </section>
+
         <CostSection />
         <SixStepsSection />
       </main>

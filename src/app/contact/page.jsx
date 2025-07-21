@@ -1,13 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from '../styles/ContactPage.module.css';
 import ParticlesBackground from '../components/ParticlesBackground';
-import FooterMenu from '../components/Footer';
-
-
-
-
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -18,6 +13,15 @@ export default function ContactPage() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  
+  // Ref auf Erfolgsmeldung für Fokus
+  const successRef = useRef(null);
+
+  useEffect(() => {
+    if (submitted && successRef.current) {
+      successRef.current.focus();
+    }
+  }, [submitted]);
 
   const validate = () => {
     const newErrors = {};
@@ -49,6 +53,7 @@ export default function ContactPage() {
 
       setSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
+      setErrors({});
     } catch (error) {
       alert('Fehler beim Senden: ' + error.message);
     } finally {
@@ -58,59 +63,95 @@ export default function ContactPage() {
 
   return (
     <>
-    <ParticlesBackground />
-   
-    <main className={styles.container}>
-      
-      <h1 className="title">Kontaktieren Sie uns</h1>
+      <ParticlesBackground />
 
-      {submitted ? (
-        <p className={styles.success}>Danke für Ihre Nachricht! Wir melden uns bald.</p>
-      ) : (
-        <form onSubmit={handleSubmit} noValidate className={styles.form}>
-          <label htmlFor="name">Name:</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            value={formData.name}
-            onChange={handleChange}
-            aria-invalid={errors.name ? 'true' : 'false'}
-            aria-describedby="name-error"
-          />
-          {errors.name && <span id="name-error" className={styles.error}>{errors.name}</span>}
+      <main className={styles.container}>
+        <h1 className="title">Hinterlassen Sie uns eine Notiz</h1>
 
-          <label htmlFor="email">E-Mail:</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            aria-invalid={errors.email ? 'true' : 'false'}
-            aria-describedby="email-error"
-          />
-          {errors.email && <span id="email-error" className={styles.error}>{errors.email}</span>}
+        {submitted ? (
+          <p
+            className={styles.success}
+            tabIndex={-1}
+            role="alert"
+            aria-live="polite"
+            ref={successRef}
+          >
+            Danke für Ihre Nachricht! Wir melden uns umgehend!
+          </p>
+        ) : (
+          <form onSubmit={handleSubmit} noValidate className={styles.form} aria-describedby="form-instructions">
+            <p id="form-instructions" className="sr-only">
+              Pflichtfelder sind mit einem Stern (*) gekennzeichnet.
+            </p>
 
-          <label htmlFor="message">Nachricht:</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            value={formData.message}
-            onChange={handleChange}
-            aria-invalid={errors.message ? 'true' : 'false'}
-            aria-describedby="message-error"
-          />
-          {errors.message && <span id="message-error" className={styles.error}>{errors.message}</span>}
+            <label htmlFor="name">
+              Name: <span aria-hidden="true" style={{color:'red'}}>*</span>
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              aria-required="true"
+              aria-invalid={errors.name ? 'true' : 'false'}
+              aria-describedby={errors.name ? 'name-error' : undefined}
+            />
+            {errors.name && (
+              <span id="name-error" className={styles.error} role="alert">
+                {errors.name}
+              </span>
+            )}
 
-          <button type="submit" className="btn btn-primary" disabled={sending}>
-            {sending ? 'Wird gesendet...' : 'Absenden'}
-          </button>
-        </form>
-      )}
-    </main>
-   
-     </>
+            <label htmlFor="email">
+              E-Mail: <span aria-hidden="true" style={{color:'red'}}>*</span>
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              aria-required="true"
+              aria-invalid={errors.email ? 'true' : 'false'}
+              aria-describedby={errors.email ? 'email-error' : undefined}
+            />
+            {errors.email && (
+              <span id="email-error" className={styles.error} role="alert">
+                {errors.email}
+              </span>
+            )}
+
+            <label htmlFor="message">
+              Nachricht: <span aria-hidden="true" style={{color:'red'}}>*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              value={formData.message}
+              onChange={handleChange}
+              aria-required="true"
+              aria-invalid={errors.message ? 'true' : 'false'}
+              aria-describedby={errors.message ? 'message-error' : undefined}
+            />
+            {errors.message && (
+              <span id="message-error" className={styles.error} role="alert">
+                {errors.message}
+              </span>
+            )}
+
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={sending}
+              aria-disabled={sending}
+            >
+              {sending ? 'Wird gesendet...' : 'Absenden'}
+            </button>
+          </form>
+        )}
+      </main>
+    </>
   );
 }

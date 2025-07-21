@@ -1,6 +1,6 @@
 'use client';
 
-import { useContext } from 'react';
+import { useContext, useState, useEffect, useRef } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 import { FadeInSection } from './components/FadeInSection';
 import ScrollIndicator from './components/ScrollIndicator';
@@ -23,14 +23,11 @@ import './globals.css';
 import styles from './styles/Index.module.css';
 import HomeContent from './components/HomeContent';
 import dynamic from 'next/dynamic';
-import { useState, useEffect, useRef } from 'react';
 
-
-
-// Lazy load ThreeDScene (kein SSR, also nur clientseitig)
+// Lazy load ThreeDScene (nur clientseitig)
 const LazyThreeDScene = dynamic(() => import('./components/ThreeDScene'), {
   ssr: false,
-  loading: () => <p>Lade 3D Modell...</p>,
+  loading: () => <p aria-live="polite">Lade 3D Modell...</p>,
 });
 
 export default function HomePage() {
@@ -47,93 +44,141 @@ export default function HomePage() {
     }, { threshold: 0.1 });
 
     if (ref.current) observer.observe(ref.current);
-
     return () => observer.disconnect();
   }, []);
 
   return (
-    <main className={`page-wrapper ${isDark ? 'dark' : 'light'}`}>
-      <section className="hero-section" id="home">
-        <FadeInSection>
-          <div className="text-center">
-            <h1 className="main-title">Baumgartner Design & Development</h1>
-            <div className='flex justify-center items-center gap-2'>
-              <Image
-                className='swiss'
-                src="/images/switzerland.webp"
-                alt="Schweizer Qualität im Webdesign"
-                width={40}
-                height={40}
-                priority
-              />
-              <p className="subtitle">Professionelles Webdesign und moderne Entwicklung made in Switzerland</p>
+    <>
+      {/* Skiplink für Tastaturnutzer */}
+      <a href="#main-content" className="skip-link">Zum Inhalt springen</a>
+
+      <main
+        id="main-content"
+        className={`page-wrapper ${isDark ? 'dark' : 'light'}`}
+        role="main"
+        aria-label="Hauptinhalt"
+      >
+        {/* Hero Section */}
+        <section className="hero-section" id="home" aria-labelledby="hero-title">
+          <FadeInSection>
+            <div className="text-center">
+              <h1 id="hero-title" className="main-title">
+                Baumgartner Design &amp; Development
+              </h1>
+
+              <div className="flex justify-center items-center gap-2">
+                <Image
+                  className="swiss"
+                  src="/images/switzerland.webp"
+                  alt="Schweizer Qualität im Webdesign"
+                  width={40}
+                  height={40}
+                  priority
+                />
+                <p className="subtitle">
+                  Professionelles Webdesign und moderne Entwicklung made in Switzerland
+                </p>
+              </div>
+
+              <div className="button-group" role="navigation" aria-label="Primäre Aktionen">
+                <a href="#contact" className="btn btn-primary" role="button">
+                  Kontakt
+                </a>
+                <a href="#about-team" className="btn btn-secondary" role="button">
+                  Über das Team
+                </a>
+              </div>
+
+              <ScrollIndicator />
             </div>
+          </FadeInSection>
+        </section>
 
-            <div className="button-group">
-              <a href="#contact" className="btn btn-primary">Kontakt</a>
-              <a href="#about-team" className="btn btn-secondary">Über das Team</a>
-            </div>
+        {/* Projekte + 3D Modell */}
+        <section
+          ref={ref}
+          className="projects-section"
+          id="projects"
+          aria-labelledby="projects-title"
+          style={{ minHeight: '600px' }}
+        >
+          <h2 id="projects-title" className="sr-only">3D Projekte</h2>
+          {loadModel ? (
+            <LazyThreeDScene aria-label="Interaktive 3D Szene" />
+          ) : (
+            <p aria-live="polite">Scrollen Sie, um das 3D Modell zu laden...</p>
+          )}
+        </section>
 
-            <ScrollIndicator />
-          </div>
-        </FadeInSection>
-      </section>
+        <HomeContent isDark={isDark} />
 
-      <section ref={ref} className="projects-section" id="projects" style={{ minHeight: '600px' }}>
-        {loadModel ? <LazyThreeDScene /> : <p>Scroll down to load 3D model...</p>}
-      </section>
-
-      <HomeContent isDark={isDark} />
-     
-      
-      <FadeInSection>
-        <Home />
-      </FadeInSection>
-      <ServicesSection isDark={isDark} />
-      <CounterSection isDark={isDark} />
-      <NextJsSection isDark={isDark} />
-      <NextJsImageSection isDark={isDark} />
-      <WebdesignSection isDark={isDark} />
-      <WebdesignImageSection isDark={isDark} />
-      <CostSection isDark={isDark} />
-      <SixStepsSection isDark={isDark} />
-
-      <section className="about-section" id='about-team'>
         <FadeInSection>
-           <Image
-        src="/images/team.webp"
-        alt="Unser Team bei Baumgartner Design & Development"
-        width={800}
-        height={400}
-        quality={85}
-        priority={true} // Nur falls das Bild above-the-fold ist
-        placeholder="blur"
-        blurDataURL="/images/team.webp" // Optional (siehe Hinweis unten)
-        className={styles.responsiveImage}
-      />
+          <Home />
+        </FadeInSection>
+        <ServicesSection isDark={isDark} />
+        <CounterSection isDark={isDark} />
+        <NextJsSection isDark={isDark} />
+        <NextJsImageSection isDark={isDark} />
+        <WebdesignSection isDark={isDark} />
+        <WebdesignImageSection isDark={isDark} />
+        <CostSection isDark={isDark} />
+        <SixStepsSection isDark={isDark} />
+
+        {/* About Team */}
+        <section className="about-section" id="about-team" aria-labelledby="about-title">
+          <h2 id="about-title" className="sr-only">Über unser Team</h2>
+          <FadeInSection>
+            <Image
+              src="/images/team.webp"
+              alt="Unser Team bei Baumgartner Design & Development"
+              width={800}
+              height={400}
+              quality={85}
+              priority
+              placeholder="blur"
+              blurDataURL="/images/team.webp"
+              className={styles.responsiveImage}
+            />
+          </FadeInSection>
+          <FadeInSection>
+            <AboutSection />
+          </FadeInSection>
+        </section>
+
+        <FadeInSection>
+          <TechnologiesSection isDark={isDark} />
         </FadeInSection>
         <FadeInSection>
-          <AboutSection />
+          <FaqSection isDark={isDark} />
         </FadeInSection>
-      </section>
-        <FadeInSection>
-      <TechnologiesSection isDark={isDark} />
-      </FadeInSection>
-      <FadeInSection>
-      <FaqSection isDark={isDark} />
-      </FadeInSection>
 
-      <section className="contact-section" id="contact">
-        <h2 className='contact'>Kontakt</h2>
-        <address>
-          <p><strong>Bruno Baumgartner</strong></p>
-          <p>Baumgartner Design & Development</p>
-          <p>E-Mail: <a href="mailto:bruno@brainbloom.ch">bruno@brainbloom.ch</a></p>
-          <p>Telefon: <a href="tel:+41782437227">+41 78 243 72 27</a></p>
-        </address>
-      </section>
+        {/* Kontakt */}
+        <section
+          className="contact-section"
+          id="contact"
+          aria-labelledby="contact-title"
+        >
+          <h2 id="contact-title" className="contact">Kontakt</h2>
+          <address>
+            <p><strong>Bruno Baumgartner</strong></p>
+            <p>Baumgartner Design &amp; Development</p>
+            <p>
+              E-Mail:{' '}
+              <a href="mailto:bruno@brainbloom.ch" aria-label="E-Mail an Bruno Baumgartner">
+                bruno@brainbloom.ch
+              </a>
+            </p>
+            <p>
+              Telefon:{' '}
+              <a href="tel:+41782437227" aria-label="Telefonnummer anrufen +41 78 243 72 27">
+                +41 78 243 72 27
+              </a>
+            </p>
+          </address>
+        </section>
 
-      <FooterMenu isDark={isDark} />
-    </main>
+        <FooterMenu isDark={isDark} />
+      </main>
+    </>
   );
 }

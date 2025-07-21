@@ -5,9 +5,15 @@ import styles from '../styles/CallToDownload.module.css';
 
 export default function CallToDownload() {
   return (
-    <section className={styles.ctaSection}>
+    <section
+      className={styles.ctaSection}
+      aria-labelledby="cta-title"
+      role="region"
+    >
       <div className={styles.ctaBox}>
-        <h2>Für wen lohnen sich unsere Services – und wer sind unsere Kunden?</h2>
+        <h2 id="cta-title" tabIndex={-1}>
+          Für wen lohnen sich unsere Services – und wer sind unsere Kunden?
+        </h2>
 
         <p>
           Wir wissen, wie schmerzhaft es ist, wenn potenzielle Kund:innen abspringen, 
@@ -20,7 +26,10 @@ export default function CallToDownload() {
         </p>
 
         <p>
-          📄 Laden Sie jetzt unseren Vergleich herunter:<br />
+          📄 Laden Sie jetzt unseren Vergleich herunter:
+        </p>
+
+        <p>
           <strong>Baumgartner vs. Website-Builder</strong>
         </p>
 
@@ -28,6 +37,7 @@ export default function CallToDownload() {
           href="/downloads/Baumgartner-Vergleich.pdf"
           className={styles.ctaButton}
           download
+          aria-label="PDF Vergleich Baumgartner versus Website-Builder herunterladen"
         >
           PDF herunterladen
         </a>
@@ -36,7 +46,11 @@ export default function CallToDownload() {
           Oder lassen Sie sich unverbindlich beraten:
         </p>
 
-        <Link href="/contact" className={styles.ctaButton}>
+        <Link
+          href="/contact"
+          className={styles.ctaButton}
+          aria-label="Unverbindliche Beratung anfragen"
+        >
           Jetzt Beratung anfragen
         </Link>
       </div>

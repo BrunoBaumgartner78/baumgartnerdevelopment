@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useRef } from 'react';
 import styles from '../styles/FullScreenMenu.module.css';
 import { ThemeContext } from '../../context/ThemeContext';
 
@@ -9,7 +9,7 @@ const menuItems = [
     title: 'Home',
     links: [
       { text: 'Startseite', href: '/' },
-      { text: 'Contact', href: '/contact' },
+      { text: 'Kontakt', href: '/contact' },
       { text: 'Blog', href: '/blog' },
     ],
   },
@@ -18,7 +18,7 @@ const menuItems = [
     links: [
       { text: 'Unser Team', href: '/about-team' },
       { text: 'Unsere Vision', href: '/about-vision' },
-      { text: 'Unsere Lesitungen', href: '/about-services' },
+      { text: 'Unsere Leistungen', href: '/about-services' },
       { text: 'Standorte', href: '/about-locations' },
     ],
   },
@@ -61,15 +61,14 @@ const menuItems = [
 ];
 
 export default function FullScreenMenu({ isOpen, onClose }) {
-
-  
   const [openSection, setOpenSection] = useState(null);
   const [comets, setComets] = useState([]);
   const { isDark } = useContext(ThemeContext);
+  const menuRef = useRef(null);
 
+  // Generiere zufällige Kometen
   useEffect(() => {
     if (!isOpen) return;
-
     const cometCount = 15;
     const generated = Array.from({ length: cometCount }, (_, i) => ({
       id: i,
@@ -80,6 +79,43 @@ export default function FullScreenMenu({ isOpen, onClose }) {
     setComets(generated);
   }, [isOpen]);
 
+  // Escape zum Schließen + Fokus setzen
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Fokusfalle
+    const focusableElements = menuRef.current.querySelectorAll(
+      'button, a[href], [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusableElements[0];
+    const last = focusableElements[focusableElements.length - 1];
+
+    const trapFocus = (e) => {
+      if (e.key === 'Tab') {
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', trapFocus);
+    first?.focus();
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keydown', trapFocus);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const toggleSection = (index) => {
@@ -88,11 +124,18 @@ export default function FullScreenMenu({ isOpen, onClose }) {
 
   return (
     <div
-      className={`${styles.fullscreenMenu} `}
+      className={styles.fullscreenMenu}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="menu-title"
       onClick={onClose}
     >
-      {/* Kometenschauer */}
-      <div className={styles.cometRain}>
+      <span className="sr-only" id="menu-title">
+        Vollbild-Menü
+      </span>
+
+      {/* Kometenschauer - rein dekorativ */}
+      <div className={styles.cometRain} aria-hidden="true">
         {comets.map((comet) => (
           <div
             key={comet.id}
@@ -106,16 +149,23 @@ export default function FullScreenMenu({ isOpen, onClose }) {
         ))}
       </div>
 
-      <div className={styles.menuContent} onClick={(e) => e.stopPropagation()}>
+      <div
+        className={styles.menuContent}
+        ref={menuRef}
+        onClick={(e) => e.stopPropagation()}
+      >
         {menuItems.map((item, index) => (
           <div key={index} className={styles.accordionSection}>
             <button
               className={styles.accordionTitle}
+              aria-expanded={openSection === index}
+              aria-controls={`section-${index}`}
               onClick={() => toggleSection(index)}
             >
               {item.title}
             </button>
             <ul
+              id={`section-${index}`}
               className={`${styles.accordionList} ${
                 openSection === index ? styles.accordionOpen : ''
               }`}
@@ -132,10 +182,13 @@ export default function FullScreenMenu({ isOpen, onClose }) {
         ))}
 
         <button
-          className={`${styles.menuCloseButton} ${isDark ? styles.dark : styles.light}`}
+          className={`${styles.menuCloseButton} ${
+            isDark ? styles.dark : styles.light
+          }`}
           onClick={onClose}
+          aria-label="Menü schließen"
         >
-          Schliessen
+          Schließen
         </button>
       </div>
     </div>

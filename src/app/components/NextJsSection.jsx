@@ -52,21 +52,28 @@ export default function NextJsSection() {
   const { isDark } = useContext(ThemeContext);
 
   return (
-    <section className={`${styles.nextJsSection} `}>
-      <h2 className={styles.sectionTitle}>Next.js Freelancer Leistungen</h2>
+    <section 
+      className={styles.nextJsSection} 
+      aria-labelledby="nextjs-section-title"
+      role="region"
+    >
+      <h2 id="nextjs-section-title" className={styles.sectionTitle}>
+        Next.js Freelancer Leistungen
+      </h2>
       <p className={styles.sectionIntro}>
         Nutzen Sie die Vorteile von Next.js für schnelle, SEO-optimierte Webanwendungen. Erstellen Sie mit mir zusammen eine hochperformante Webseite.
       </p>
+
       <div className={styles.cards}>
         {nextJsServices.map(({ title, description, icon: Icon }, i) => (
-          <div key={i} className={styles.card}>
-            <div className={styles.iconWrapper}>
-              <Icon className={styles.icon} />
+          <article key={i} className={styles.card}>
+            <div className={styles.iconWrapper} aria-hidden="true">
+              <Icon className={styles.icon} focusable="false" />
               <div className={styles.iconBackground} />
             </div>
             <h3 className={styles.cardTitle}>{title}</h3>
             <p className={styles.cardDescription}>{description}</p>
-          </div>
+          </article>
         ))}
       </div>
     </section>

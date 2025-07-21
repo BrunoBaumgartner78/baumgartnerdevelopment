@@ -62,21 +62,32 @@ export default function ServicesSection() {
   const { isDark } = useContext(ThemeContext);
 
   return (
-    <section className={`${styles.servicesSection}`}>
-      <h2 className={styles.sectionTitle}>Leistungen als WordPress Freelancer</h2>
+    <section
+      className={styles.servicesSection}
+      aria-labelledby="services-title"
+    >
+      <h2 id="services-title" className={styles.sectionTitle}>
+        Leistungen als WordPress Freelancer
+      </h2>
       <p className={styles.sectionIntro}>
-        Die individuelle Erstellung einer Homepage erfordert viel Wissen aus vielen Bereichen. Profitieren Sie von meiner langjährigen Erfahrung und lassen Sie sich Ihre individuelle Website erstellen. Kontaktieren Sie mich gerne, um gemeinsam Ihre WordPress-Website umzusetzen.
+        Die individuelle Erstellung einer Homepage erfordert viel Wissen aus vielen Bereichen.
+        Profitieren Sie von meiner langjährigen Erfahrung und lassen Sie sich Ihre individuelle Website erstellen.
+        Kontaktieren Sie mich gerne, um gemeinsam Ihre WordPress-Website umzusetzen.
       </p>
-      <div className={styles.cards}>
+      <div className={styles.cards} role="list">
         {services.map(({ title, description, icon: Icon }, i) => (
-          <div key={i} className={styles.card}>
+          <article key={i} className={styles.card} role="listitem">
             <div className={styles.iconWrapper}>
-              <Icon className={styles.icon} />
+              <Icon
+                className={styles.icon}
+                aria-hidden="true"
+                focusable="false"
+              />
               <div className={styles.iconBackground} />
             </div>
             <h3 className={styles.cardTitle}>{title}</h3>
             <p className={styles.cardDescription}>{description}</p>
-          </div>
+          </article>
         ))}
       </div>
     </section>

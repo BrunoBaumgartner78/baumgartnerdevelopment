@@ -3,8 +3,7 @@
 import { useContext } from 'react';
 import styles from '../styles/WebdesignImageSection.module.css';
 import { ThemeContext } from '../../context/ThemeContext';
-import Image from 'next/image'
-
+import Image from 'next/image';
 
 export default function WebdesignImageSection({ isDark: isDarkProp }) {
   // Nutze ThemeContext, falls verfügbar – sonst fallback auf Prop
@@ -13,8 +12,9 @@ export default function WebdesignImageSection({ isDark: isDarkProp }) {
 
   return (
     <section
-      className={`${styles.webdesignSection} `}
+      className={`${styles.webdesignSection}`}
       aria-labelledby="webdesign-services-heading"
+      tabIndex={-1} // Ermöglicht das Fokussieren des Sections via JS für z.B. Skip-Link (optional)
     >
       <div className={styles.contentWrapper}>
         <div className={styles.textBox}>
@@ -27,17 +27,18 @@ export default function WebdesignImageSection({ isDark: isDarkProp }) {
           </p>
         </div>
 
-       <div className={styles.imageContainer}>
-      <Image
-        src="/images/team2.webp"
-        alt="Team arbeitet an einem modernen Webdesign-Projekt"
-        width={800}          // Optional: tatsächliche Breite
-        height={500}         // Optional: tatsächliche Höhe
-        quality={85}         // Kompromiss zwischen Größe und Qualität
-        className={styles.responsiveImage}
-        placeholder="blur"
-        blurDataURL="/images/team2.webp" // Optional, falls vorhanden
-      />
+        <div className={styles.imageContainer}>
+          <Image
+            src="/images/team2.webp"
+            alt="Team arbeitet an einem modernen Webdesign-Projekt"
+            width={800}
+            height={500}
+            quality={85}
+            className={styles.responsiveImage}
+            placeholder="blur"
+            blurDataURL="/images/team2.webp"
+            // Wichtig: Next.js Bilder sind per Default focusable=false & aria-hidden=false, das ist gut so
+          />
         </div>
       </div>
     </section>

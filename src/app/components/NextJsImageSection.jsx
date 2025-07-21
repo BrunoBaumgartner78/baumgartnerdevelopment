@@ -3,17 +3,22 @@
 import { useContext } from 'react';
 import styles from '../styles/NextJsImageSection.module.css';
 import { ThemeContext } from '../../context/ThemeContext';
-import Image from 'next/image'
-
+import Image from 'next/image';
 
 export default function NextJsImageSection() {
   const { isDark } = useContext(ThemeContext);
 
+  // Für WCAG 2.1 AAA: Stelle sicher, dass Textfarben in CSS >7:1 Kontrast zum Hintergrund haben
+
   return (
-    <section className={`${styles.nextJsSection}`}>
+    <section
+      className={styles.nextJsSection}
+      aria-labelledby="nextjs-services-heading"
+      role="region"
+    >
       <div className={styles.contentWrapper}>
         <div className={styles.textBox}>
-          <h2>Next.js Dienstleistungen</h2>
+          <h2 id="nextjs-services-heading">Next.js Dienstleistungen</h2>
           <p>
             Profitieren Sie von modernster Webtechnologie mit Next.js. Wir entwickeln
             blitzschnelle, serverseitig gerenderte Anwendungen mit höchster SEO-Performance.
@@ -24,19 +29,19 @@ export default function NextJsImageSection() {
           </p>
         </div>
 
-         <div className={styles.imageContainer}>
-      <Image
-        src="/images/team4.webp"
-        alt="Next.js Entwicklung – modernes Webdesign für KMU"
-        width={800}
-        height={500}
-        quality={85}
-        className={styles.responsiveImage}
-        placeholder="blur"
-        blurDataURL="/images/team4.webp" // optional, siehe unten
-        priority={false}
-      />
-    </div>
+        <div className={styles.imageContainer}>
+          <Image
+            src="/images/team4.webp"
+            alt="Next.js Entwicklung – modernes Webdesign für KMU"
+            width={800}
+            height={500}
+            quality={85}
+            className={styles.responsiveImage}
+            placeholder="blur"
+            blurDataURL="/images/team4.webp"
+            priority={false}
+          />
+        </div>
       </div>
     </section>
   );

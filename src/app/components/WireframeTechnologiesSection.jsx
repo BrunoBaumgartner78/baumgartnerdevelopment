@@ -15,19 +15,30 @@ const wireframeTools = [
 
 export default function WireframesTechnologiesSection() {
   return (
-    <section className={styles.section}>
-      <h2 className={styles.heading}>Tools & Mittel für Wireframes</h2>
+    <section className={styles.section} aria-labelledby="wireframes-tools-heading">
+      <h2 id="wireframes-tools-heading" className={styles.heading}>
+        Tools & Mittel für Wireframes
+      </h2>
       <div className={styles.grid}>
-        {wireframeTools.map(({ name, icon: Icon }) => (
-          <motion.div
+        {wireframeTools.map(({ name, icon: Icon }, index) => (
+          <article
             key={name}
-            whileHover={{ scale: 1.2, rotate: 5 }}
-            transition={{ type: 'spring', stiffness: 300 }}
             className={styles.card}
+            role="region"
+            aria-labelledby={`wireframe-tool-title-${index}`}
           >
-            <Icon className={styles.icon} />
-            <p className={styles.label}>{name}</p>
-          </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.2, rotate: 5 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+              aria-hidden="true"
+              className={styles.iconWrapper}
+            >
+              <Icon className={styles.icon} aria-hidden="true" />
+            </motion.div>
+            <p id={`wireframe-tool-title-${index}`} className={styles.label}>
+              {name}
+            </p>
+          </article>
         ))}
       </div>
     </section>

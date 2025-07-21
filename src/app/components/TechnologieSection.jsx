@@ -15,16 +15,16 @@ import {
   SiWordpress,
   SiPhp,
   SiOpenai,
-  SiGoogle,        // Google
-  SiApollographql, // API (GraphQL Beispiel)
-  SiJsonwebtokens, // JSON (JWT steht für JSON Web Token)
-  SiGithub,        // Github
-  SiDocker,        // Docker für Containerisierung
-  SiFirebase,      // Firebase als Backend / Auth
-  SiNodedotjs,     // Node.js Backend
-  SiExpress,       // Express.js (Node Web Framework)
-  SiSass,          // Sass CSS Preprocessor
-  SiVercel,        // Vercel Deployment Plattform
+  SiGoogle,
+  SiApollographql,
+  SiJsonwebtokens,
+  SiGithub,
+  SiDocker,
+  SiFirebase,
+  SiNodedotjs,
+  SiExpress,
+  SiSass,
+  SiVercel,
 } from 'react-icons/si';
 
 const technologies = [
@@ -38,8 +38,6 @@ const technologies = [
   { name: 'WordPress', icon: SiWordpress },
   { name: 'PHP', icon: SiPhp },
   { name: 'ChatGPT (OpenAI)', icon: SiOpenai },
-
-  // Neue Technologien:
   { name: 'Google APIs', icon: SiGoogle },
   { name: 'GraphQL API', icon: SiApollographql },
   { name: 'JSON Web Tokens (JWT)', icon: SiJsonwebtokens },
@@ -52,13 +50,14 @@ const technologies = [
   { name: 'Vercel', icon: SiVercel },
 ];
 
-
 export default function TechnologiesSection() {
   const { isDark } = useContext(ThemeContext);
 
   return (
-    <section className={`${styles.section}`}>
-      <h2 className={styles.heading}>Unsere Technologien</h2>
+    <section className={styles.section} aria-labelledby="technologies-heading">
+      <h2 id="technologies-heading" className={styles.heading}>
+        Unsere Technologien
+      </h2>
 
       <div className={styles.grid}>
         {technologies.map(({ name, icon: Icon }) => (
@@ -67,8 +66,15 @@ export default function TechnologiesSection() {
             whileHover={{ scale: 1.2, rotate: 5 }}
             transition={{ type: 'spring', stiffness: 300 }}
             className={styles.card}
+            role="listitem"
           >
-            <Icon className={styles.icon} />
+            <Icon
+              className={styles.icon}
+              aria-hidden="true"
+              focusable="false"
+              // Optional: Für Farbanpassung je nach Dark/Light Mode
+              // style={{ color: isDark ? '#FFF' : '#000' }}
+            />
             <p className={styles.label}>{name}</p>
           </motion.div>
         ))}
